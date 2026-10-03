@@ -1,76 +1,42 @@
-/**
- * YOUR IDENTITY - start here.
- *
- * Everything that says who you are lives in this file: name, handle, photo,
- * socials, email and the Home headline. Every value below is a PLACEHOLDER.
- * Replace the text, or hand this file to your AI assistant and tell it what
- * to put in each field.
- *
- * Page-specific copy (projects, services, testimonials, FAQs) lives in the
- * other files in src/data/ and at the top of each view component.
- */
+import { Calendar, Buildings, Wrench } from '@phosphor-icons/react'
 
-import { Briefcase, SealCheck, Clock, type Icon } from '@/components/slab'
-
-export type SocialLink = {
-  label: string
-  href: string
-  iconPath: string
-}
-
-/** A proof fact on the phone's Home: a glyph, a short value, a caption. */
-export type Stat = { value: string; label: string; Icon: Icon }
-
-export type Profile = {
-  name: string
-  /** First name, used in "Hi, I'm ___." on About. */
-  firstName: string
-  handle: string
-  /** Short role line under the handle on phones. */
-  role: string
-  /** Square image. An SVG, WebP or PNG with a transparent background looks best. */
-  avatarSrc: string
-  /** Tooltip / screen-reader label on the verified tick next to your name. */
-  verifiedLabel: string
-  email: string
-  location: string
-  /** Three short proof facts shown on phones under the Home lede. */
-  stats: Stat[]
-  displayName: { line1: string; line2: string }
+export const profile = {
+  name: "Abian Keith Sibug",
+  firstName: "Keith",
+  handle: "@keith",
+  role: "SEO & AI Search Specialist",
+  title: "SEO & AI Search Specialist",
+  tagline: "Rank first. Grow everywhere.",
+  location: "Philippines (Remote)",
+  email: "abiansibug08@gmail.com",
+  phone: "+63 997 972 0109",
+  whatsapp: "https://wa.me/639979720109",
+  portfolio: "https://abian-portfolio.netlify.app",
+  avatarSrc: "/avatar.png",
+  verifiedLabel: "Verified professional",
+  bio: "Digital marketing professional with 8+ years helping real estate brands dominate search - on Google and on AI platforms like ChatGPT and Perplexity.",
+  displayName: {
+    line1: "Rank first.",
+    line2: "Grow everywhere.",
+  },
   hero: {
-    body: string
-    portraitSrc: string
-    portraitAlt: string
-  }
-  socials: SocialLink[]
-}
-
-export const profile: Profile = {
-  name: 'Your Name',
-  firstName: 'Your Name',
-  handle: '@yourhandle',
-  role: 'PLACEHOLDER - your title',
-  avatarSrc: '/avatar.svg',
-  verifiedLabel: 'PLACEHOLDER - what the tick means (e.g. a certification)',
-  email: 'you@example.com',
-  location: 'PLACEHOLDER - your city or timezone',
-  // Pick any icon from https://phosphoricons.com and import it above.
-  stats: [
-    { value: '0 yrs', label: 'PLACEHOLDER', Icon: Briefcase },
-    { value: '#000', label: 'PLACEHOLDER', Icon: SealCheck },
-    { value: 'GMT+0', label: 'PLACEHOLDER', Icon: Clock },
-  ],
-  // The intro types this line, then flies it into the Home headline.
-  // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Your headline here.', line2: 'Keep it short.' },
-  hero: {
-    body: 'PLACEHOLDER - one line on what you do and who you do it for.',
-    portraitSrc: '/avatar.svg',
-    portraitAlt: 'Portrait placeholder',
+    body: "SEO and AI search specialist helping real estate teams get found on Google, ChatGPT, and every platform in between.",
   },
   socials: [
-    { label: 'Facebook profile', href: '#', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href: '#', iconPath: '/icons/linkedin.svg' },
-    { label: 'Discord profile', href: '#', iconPath: '/icons/discord.svg' },
+    {
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/abian-keith-sibug-27ba2419a",
+      iconPath: "/icons/ai/linkedin.svg",
+    },
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/639979720109",
+      iconPath: "/icons/ai/whatsapp.svg",
+    },
   ],
-}
+  stats: [
+    { label: "Years Experience", value: "8+", Icon: Calendar },
+    { label: "Brands Managed", value: "3", Icon: Buildings },
+    { label: "Tools Mastered", value: "30+", Icon: Wrench },
+  ],
+};

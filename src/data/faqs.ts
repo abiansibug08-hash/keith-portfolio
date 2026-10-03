@@ -1,30 +1,27 @@
-export type QA = { q: string; a: string }
+export interface FAQ {
+  q: string;
+  a: string;
+}
 
-/**
- * The questions people ask before they email. One list, used by the FAQ
- * accordion on the Contact view (and the legacy long-scroll FAQ section).
- * Five questions, two or three sentences each: the accordion sits in a
- * fixed panel and more than that pushes the email row off the plate.
- */
-export const FAQS: QA[] = [
+export const FAQS: FAQ[] = [
   {
-    q: 'What do you do?',
-    a: 'PLACEHOLDER - tell me what to put here: the kinds of work you take on, and who it is usually for.',
+    q: "What is GEO / AEO and why does it matter now?",
+    a: "Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) are strategies that help your brand get cited and recommended by AI tools like ChatGPT, Perplexity, Google AI Overviews, and Bing Copilot. As more people search using AI instead of typing keywords, being visible in those AI-generated answers is the new first page of Google.",
   },
   {
-    q: 'How fast can you start?',
-    a: 'PLACEHOLDER - tell me what to put here: your usual lead time for small fixes vs. larger projects, and your working hours.',
+    q: "What types of businesses do you work with?",
+    a: "Most of my experience is with real estate teams and service-based businesses in the U.S. market. I've worked with realtors, spa and wellness brands, and IV therapy clinics - handling everything from their websites and SEO to social media, email, and design.",
   },
   {
-    q: 'How much do you charge?',
-    a: 'PLACEHOLDER - tell me what to put here: how you price (hourly, per project, retainer) and how a quote is put together.',
+    q: "Do you work full-time or on a retainer?",
+    a: "Both. I'm open to full-time remote roles, part-time contracts, and monthly retainers depending on the scope of work. Most of my long-term clients have been on a retainer arrangement that covers ongoing SEO, website maintenance, content, and reporting.",
   },
   {
-    q: 'Where are you based?',
-    a: 'PLACEHOLDER - tell me what to put here: your location or timezone, and which client timezones you overlap with.',
+    q: "What tools and platforms are you proficient in?",
+    a: "For SEO: Google Search Console, Google Analytics, Yoast, and AI-assisted auditing with Claude and ChatGPT. For websites: Wix, WordPress, Squarespace, and Luxury Presence. For content and design: Canva, Adobe Premiere, Photoshop, and Higgsfield AI. For email: Mailchimp, Flodesk, and ActivePipe. For automation: Zapier. And for YouTube: VidIQ.",
   },
   {
-    q: 'What happens after I write?',
-    a: 'PLACEHOLDER - tell me what to put here: how fast you reply and what the next step looks like.',
+    q: "How quickly can you start?",
+    a: "I'm available to start immediately. I'm based in the Philippines (UTC+8), which means I naturally overlap with U.S. business hours during their morning - and I'm flexible on schedule adjustments to fit your team's timezone.",
   },
-]
+];

@@ -47,11 +47,11 @@ export function HomeStats() {
 }
 
 const TILES = [
-  { n: '01', label: 'Projects', to: '/projects', title: 'PLACEHOLDER - projects headline', desc: 'Tell me what to put here.', img: '/placeholders/project-1.jpg' },
-  { n: '02', label: 'Services', to: '/services', title: 'PLACEHOLDER - services headline', desc: 'Tell me what to put here.', Icon: Stack },
-  { n: '03', label: 'Showcase', to: '/showcase', title: 'PLACEHOLDER - your flagship', desc: 'Tell me what to put here.', Icon: Coffee, accent: true },
-  { n: '04', label: 'Testimonials', to: '/testimonials', title: 'PLACEHOLDER - testimonials headline', desc: 'Tell me what to put here.', img: '/placeholders/testimonial-1.jpg' },
-  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'PLACEHOLDER - one line about you.', img: profile.avatarSrc },
+  { n: '01', label: 'Projects', to: '/projects', title: 'Real clients. Real results.', desc: 'REALIV, Margot Spa, DripIV Therapy.', img: '/placeholders/project-1.jpg' },
+  { n: '02', label: 'Services', to: '/services', title: 'Everything your brand needs to get found.', desc: 'SEO, AI search, social, websites, email, design.', Icon: Stack },
+  { n: '03', label: 'Showcase', to: '/showcase', title: 'Rank first. Grow everywhere.', desc: 'My full AI search and SEO toolkit.', Icon: Coffee, accent: true },
+  { n: '04', label: 'Clients', to: '/testimonials', title: 'Brands I have grown.', desc: 'Long-term real estate and wellness clients.', img: '/placeholders/testimonial-1.jpg' },
+  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: '8+ years in SEO and digital marketing.', img: profile.avatarSrc },
 ] as const
 
 export function HomeExplore() {
@@ -88,15 +88,15 @@ export function HomeExplore() {
           </Link>
         </h2>
       </div>
-      <Link to="/testimonials" className="hproof" aria-label="Client testimonial. PLACEHOLDER - a one-line teaser for your best testimonial.">
+      <Link to="/testimonials" className="hproof" aria-label="Client work - 4.5 years managing SEO and digital marketing for KKRG / REALIV.">
         <span className="hproof__stage">
           <img src="/placeholders/testimonial-1.jpg" alt="" loading="lazy" />
           <span className="hproof__play" aria-hidden="true"><Play size={20} weight="fill" /></span>
-          <span className="hproof__dur" aria-hidden="true">0:00</span>
+          <span className="hproof__dur" aria-hidden="true">4.5 yrs</span>
         </span>
         <span className="hproof__copy">
-          <span className="hproof__title">PLACEHOLDER - tell me what to put here: a one-line teaser for your best testimonial.</span>
-          <span className="hproof__meta">PLACEHOLDER - client role</span>
+          <span className="hproof__title">SEO, website, social, email, and design for a Scottsdale real estate team.</span>
+          <span className="hproof__meta">KKRG / REALIV - Marketing Admin</span>
         </span>
       </Link>
     </>

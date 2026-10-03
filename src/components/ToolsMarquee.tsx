@@ -38,17 +38,18 @@ type Tool = {
 }
 
 export const tools: Tool[] = [
-  { name: 'Claude Code',          iconPath: '/icons/claude-code-logo.png' },
-  { name: 'Codex',                iconPath: '/icons/codex.svg',           color: '#000000' },
-  { name: 'Cursor',               iconPath: '/icons/cursor.svg',          color: '#0F172A' },
-  { name: 'Hermes AI',            iconPath: '/icons/nousresearch.svg',    color: '#18181B' },
-  { name: 'VS Code',              iconPath: '/icons/vscode.svg' },
-  { name: 'GoHighLevel',          iconPath: '/icons/gohighlevel.png' },
-  { name: 'Lightspeed X-Series',  iconPath: '/icons/lightspeed.png' },
-  { name: 'Google Workspace',     iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Zendesk',              iconPath: '/icons/zendesk.svg',         color: '#03363D' },
-  { name: 'Intercom',             iconPath: '/icons/intercom.svg',        color: '#1F8DED' },
-  { name: 'Slack',                iconPath: '/icons/slack.svg',           color: '#611F69' },
+  { name: 'Claude',               iconPath: '/icons/ai/claude-color.svg' },
+  { name: 'ChatGPT',              iconPath: '/icons/ai/openai.svg',       color: '#000000' },
+  { name: 'Zapier',               iconPath: '/icons/ai/zapier.svg',       color: '#FF4A00' },
+  { name: 'VidIQ',                iconPath: '/icons/googleworkspace.svg' },
+  { name: 'Canva',                iconPath: '/icons/ai/canva.svg',        color: '#00C4CC' },
+  { name: 'Google Analytics',     iconPath: '/icons/googleworkspace.svg' },
+  { name: 'Wix',                  iconPath: '/icons/ai/wix.svg',          color: '#0C6EFC' },
+  { name: 'WordPress',            iconPath: '/icons/ai/wordpress.svg',    color: '#21759B' },
+  { name: 'Mailchimp',            iconPath: '/icons/ai/mailchimp.svg',    color: '#FFE01B' },
+  { name: 'Meta Business Suite',  iconPath: '/icons/ai/meta.svg',         color: '#0866FF' },
+  { name: 'Adobe Premiere',       iconPath: '/icons/ai/adobepremiere.svg',color: '#9999FF' },
+  { name: 'Higgsfield',           iconPath: '/icons/ai/higgsfield.svg',   color: '#000000' },
 ]
 
 export default function ToolsMarquee() {

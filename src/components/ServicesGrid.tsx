@@ -3,22 +3,6 @@ import { MagnetStraight, Timer, Trophy, CheckCircle } from '@/components/slab'
 import type { Icon } from '@/components/slab'
 import Autopilot, { TOOLS } from '@/components/Autopilot'
 
-/**
- * ServicesGrid - the Services view on one glass sheet.
- *
- * Three bands, top to bottom: your three-step method (on a dark plate so it
- * is the first thing the eye lands on), the five services as cards that carry
- * the marks of what each one is built with, and the live automation demo
- * scaled into whatever height is left. Same object language as Home and
- * Projects: the glass, the bento card, plated marks, orange for the index
- * and the accent.
- *
- * Every string below is a PLACEHOLDER. Replace it, or hand this file to your
- * AI assistant and tell it what to put in each spot.
- */
-
-/* ---------- The method ---------- */
-
 type Stage = {
   index: string
   label: string
@@ -30,42 +14,30 @@ type Stage = {
 const STAGES: Stage[] = [
   {
     index: '01',
-    label: 'Step 1',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Audit & Strategy',
+    body: 'I review your current website, rankings, and AI search presence to find the exact gaps holding you back.',
     Icon: MagnetStraight,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4'],
+    chips: ['Technical SEO', 'Keyword Research', 'Competitor Analysis', 'GEO Audit'],
   },
   {
     index: '02',
-    label: 'Step 2',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Build & Optimize',
+    body: 'I implement fixes, create AI-friendly content, and build the systems that get you found across every platform.',
     Icon: Timer,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['On-Page SEO', 'Schema Markup', 'Content Writing', 'Social Media'],
   },
   {
     index: '03',
-    label: 'Step 3',
-    body: 'PLACEHOLDER - one line on the result the client gets.',
+    label: 'Track & Grow',
+    body: 'Monthly reporting, continuous improvements, and staying ahead of every algorithm update - Google and AI alike.',
     Icon: Trophy,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['Monthly Reports', 'Search Console', 'GBP Management', 'AI Visibility'],
   },
 ]
 
-/* ---------- The services ---------- */
-
-// Example tool marks from /public/icons. Swap for the tools you actually use.
-const GHL = '/icons/gohighlevel.png'
-const REACT = '/icons/ai/react.svg'
-const TAILWIND = '/icons/ai/tailwindcss.svg'
-const VITE = '/icons/ai/vite.svg'
-const CLOUDFLARE = '/icons/ai/cloudflare.svg'
-const N8N = '/icons/ai/n8n.svg'
-const OPENAI = '/icons/openai.svg'
+const CLAUDE_ICON = '/icons/ai/claude-color.svg'
+const ZAPIER = '/icons/ai/zapier.svg'
 const GWS = '/icons/googleworkspace.svg'
-const SLACK = '/icons/slack.svg'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const EXPO = '/icons/ai/expo.svg'
-const CHROME = '/icons/ai/googlechrome.svg'
 
 type Service = {
   index: string
@@ -76,53 +48,69 @@ type Service = {
   bullets: string[]
 }
 
-const BULLETS = ['PLACEHOLDER benefit 1', 'PLACEHOLDER benefit 2', 'PLACEHOLDER benefit 3']
-const SERVICE_DESC = 'PLACEHOLDER - one line on this service.'
-
 const SERVICES: Service[] = [
   {
     index: '01',
-    title: 'Service One',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, REACT, TAILWIND],
-    bullets: BULLETS,
+    title: 'SEO & AI Search Optimization',
+    description: 'Get your website ranking on Google and cited by AI tools like ChatGPT and Perplexity.',
+    chip: 'Core Service',
+    logos: [CLAUDE_ICON, GWS, ZAPIER],
+    bullets: [
+      'Technical SEO audit and fixes',
+      'GEO / AEO content strategy',
+      'Monthly reporting and tracking',
+    ],
   },
   {
     index: '02',
-    title: 'Service Two',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, N8N, OPENAI],
-    bullets: BULLETS,
+    title: 'Website Management',
+    description: 'Ongoing management of your Wix, WordPress, or Squarespace website so you never worry about it.',
+    chip: 'Ongoing',
+    logos: [GWS, ZAPIER, CLAUDE_ICON],
+    bullets: [
+      'Content updates and landing pages',
+      'SEO settings and speed optimization',
+      'Plugin and security maintenance',
+    ],
   },
   {
     index: '03',
-    title: 'Service Three',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, GWS, SLACK],
-    bullets: BULLETS,
+    title: 'Social Media Management',
+    description: 'Consistent, on-brand content across Instagram, Facebook, and YouTube that builds your audience.',
+    chip: 'Monthly Retainer',
+    logos: [CLAUDE_ICON, GWS, ZAPIER],
+    bullets: [
+      'Content calendar and scheduling',
+      'Branded graphics and video reels',
+      'Engagement and audience growth',
+    ],
   },
   {
     index: '04',
-    title: 'Service Four',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [REACT, VITE, CLOUDFLARE],
-    bullets: BULLETS,
+    title: 'Email Marketing',
+    description: 'Campaigns and automated sequences that keep your leads warm and your clients coming back.',
+    chip: 'Campaign or Retainer',
+    logos: [ZAPIER, GWS, CLAUDE_ICON],
+    bullets: [
+      'Mailchimp, Flodesk, or ActivePipe',
+      'Drip sequences and nurture flows',
+      'List management and segmentation',
+    ],
   },
   {
     index: '05',
-    title: 'Service Five',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [CLAUDE_CODE, EXPO, CHROME],
-    bullets: BULLETS,
+    title: 'Graphic Design & Video',
+    description: 'Marketing materials, social graphics, brochures, postcards, and short-form video content.',
+    chip: 'Project or Retainer',
+    logos: [CLAUDE_ICON, ZAPIER, GWS],
+    bullets: [
+      'Canva and Photoshop design work',
+      'Adobe Premiere video editing',
+      'AI-assisted content with Higgsfield',
+    ],
   },
 ]
 
-/** The tool marks, stacked horizontally on white tiles (same as Projects). */
 function Marks({ logos }: { logos: string[] }) {
   return (
     <span className="bento__logos" aria-hidden="true">
@@ -135,34 +123,30 @@ function Marks({ logos }: { logos: string[] }) {
   )
 }
 
-/* ---------- The page ---------- */
-
 export default function ServicesGrid() {
   return (
     <section className="pgrid sgrid" aria-labelledby="services-title">
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Services</span>
         <h1 className="pgrid__title" id="services-title">
-          Your services headline, in one short line.
+          Everything your brand needs to get found.
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you offer.
+          SEO, AI search, social media, websites, email, and design - done for you.
         </p>
       </header>
 
       <div className="home__glass sgrid__glass">
-        {/* One dark plate, the headline on the left, the three stages wired
-            in order on the right with a signal running them. */}
         <div className="sgrid__method" aria-labelledby="method-title">
           <div className="sgrid__method-copy">
-            <span className="sgrid__method-eyebrow">Your Method</span>
+            <span className="sgrid__method-eyebrow">How I Work</span>
             <h2 className="sgrid__method-title" id="method-title">
-              One. Two. Three.
+              Audit. Build. Grow.
               <br />
-              <span>Your method, in three steps.</span>
+              <span>A simple process with real results.</span>
             </h2>
             <p className="sgrid__method-sub">
-              PLACEHOLDER - one sentence on why your method works.
+              Every engagement starts with understanding where you are, then building the systems to get you where you want to be.
             </p>
           </div>
 
@@ -188,11 +172,10 @@ export default function ServicesGrid() {
           </ol>
         </div>
 
-        {/* Five cards, each carrying the marks of what it is built with. */}
         <div className="sgrid__offers">
           <div className="sgrid__offers-head">
-            <h2 className="sgrid__offers-title">Your services, listed.</h2>
-            <p className="sgrid__offers-sub">PLACEHOLDER - one short nudge.</p>
+            <h2 className="sgrid__offers-title">What I offer.</h2>
+            <p className="sgrid__offers-sub">Available as a monthly retainer or project basis.</p>
           </div>
           <ul className="bento sgrid__services" role="list">
             {SERVICES.map((s) => (
@@ -219,15 +202,13 @@ export default function ServicesGrid() {
           </ul>
         </div>
 
-        {/* The live workflow. Its caption and the tool chips sit in a header
-            above the window, so the canvas gets the whole glass width. */}
         <div className="sgrid__flow">
           <header className="sgrid__flow-head">
             <div className="sgrid__flow-copy">
               <span className="sgrid__flow-eyebrow">Live automation</span>
-              <h2 className="sgrid__flow-title">Your automation headline.</h2>
+              <h2 className="sgrid__flow-title">AI-powered marketing workflows.</h2>
               <p className="sgrid__flow-sub">
-                PLACEHOLDER - tell me what to put here: one sentence on what this example automation does for a client.
+                I use Zapier and Claude to automate content creation, lead follow-up, and reporting - saving hours every week.
               </p>
             </div>
             <ul className="sgrid__flow-tools" role="list" aria-label="Tools that power this flow">

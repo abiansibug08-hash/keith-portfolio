@@ -1,33 +1,12 @@
 import type { CSSProperties } from 'react'
 import { ArrowUpRight, MapPin } from '@/components/slab'
-import { profile } from '@/data/profile'
 
-/**
- * AboutGrid - the About view as a fixed viewport.
- *
- * One glass sheet, two columns: who you are on the left, the illustration
- * on the right. Sized to the panel, so nothing here scrolls.
- *
- * The left column is a ladder, not a paragraph block: one display statement,
- * one line of context, then the four things you do - each carrying the marks
- * of the tools it is built with. The tools are the proof, so they are the
- * visual. Swap the marks below for your own (any square SVG/PNG in public/).
- */
-
-const N8N = { src: '/icons/ai/n8n.svg', name: 'n8n' }
-const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Zapier' }
-const DOCKER = { src: '/icons/ai/docker.svg', name: 'Docker' }
 const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Claude' }
-const CODEX = { src: '/icons/ai/codex.svg', name: 'Codex' }
-const GLM = { src: '/icons/ai/zhipu.svg', name: 'GLM' }
-const QWEN = { src: '/icons/ai/qwen.svg', name: 'Qwen' }
-const HERMES = { src: '/icons/ai/hermes.svg', name: 'Hermes' }
-const NAMECHEAP = { src: '/icons/ai/namecheap.svg', name: 'Namecheap' }
-const CLOUDFLARE = { src: '/icons/ai/cloudflare.svg', name: 'Cloudflare' }
-const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
-const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
-const SLACK = { src: '/icons/ai/slack-color.svg', name: 'Slack' }
-const FIREFLIES = { src: '/icons/ai/fireflies.png', name: 'Fireflies' }
+const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Zapier' }
+const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Analytics' }
+const SLACK = { src: '/icons/ai/slack-color.svg', name: 'Canva' }
+const GITHUB = { src: '/icons/ai/github.svg', name: 'VidIQ' }
+const CLOUDFLARE = { src: '/icons/ai/cloudflare.svg', name: 'Meta Business' }
 
 type Capability = {
   index: string
@@ -38,23 +17,23 @@ type Capability = {
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
-    title: 'Your role 1',
-    marks: [N8N, ZAPIER, DOCKER],
+    title: 'SEO & GEO / AEO',
+    marks: [CLAUDE, GWS, ZAPIER],
   },
   {
     index: '02',
-    title: 'Your role 2',
-    marks: [CLAUDE, CODEX, GLM, QWEN, HERMES],
+    title: 'Social Media Management',
+    marks: [SLACK, CLOUDFLARE, GWS],
   },
   {
     index: '03',
-    title: 'Your role 3',
-    marks: [CLAUDE, CODEX, NAMECHEAP, CLOUDFLARE, GITHUB],
+    title: 'Website Management',
+    marks: [ZAPIER, GITHUB, CLOUDFLARE],
   },
   {
     index: '04',
-    title: 'Your role 4',
-    marks: [GWS, SLACK, FIREFLIES],
+    title: 'AI-Powered Content & Automation',
+    marks: [CLAUDE, ZAPIER, SLACK],
   },
 ]
 
@@ -64,27 +43,26 @@ export default function AboutGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">About</span>
         <h1 className="pgrid__title" id="about-title">
-          {`Hi, I’m ${profile.firstName}.`}
+          Hi, I&apos;m Keith.
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you do.
+          SEO specialist helping real estate brands rank on Google and get cited by AI.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            Your big statement goes here, in one or two lines.
-            <span> A softer second half that finishes the thought.</span>
+            I help businesses show up where their clients are searching - on Google, on ChatGPT, on Perplexity.
+            <span> 8 years of making that happen for real estate teams.</span>
           </p>
 
           <p className="agrid__note">
-            <strong>Your company name</strong>, and{' '}
-            <a className="agrid__link" href="#">
-              your product
-            </a>{' '}
-            - PLACEHOLDER - tell me what to put here: two sentences on your company, what
-            you sell or build, and who it is for.
+            Most of my career has been with{' '}
+            <a className="agrid__link" href="https://byrealiv.com" target="_blank" rel="noopener noreferrer">
+              KKRG / REALIV
+            </a>
+            {' '}- a Scottsdale-based real estate team where I built and ran their entire digital presence: SEO, website, GEO/AEO, social media, email marketing, and design.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -109,15 +87,14 @@ export default function AboutGrid() {
             ))}
           </ul>
 
-          {/* One plate, two cells sharing a mark / title / meta anatomy. */}
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
                 <img src="/placeholders/badge.svg" alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Credential name</span>
-                <span className="agrid__cell-meta">Credential ID</span>
+                <span className="agrid__cell-title">8+ Years Experience</span>
+                <span className="agrid__cell-meta">Digital Marketing &amp; SEO</span>
               </span>
             </span>
 
@@ -126,18 +103,18 @@ export default function AboutGrid() {
                 <MapPin size={16} weight="fill" aria-hidden="true" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">Timezone · working hours</span>
+                <span className="agrid__cell-title">Philippines (Remote)</span>
+                <span className="agrid__cell-meta">UTC+8 - Flexible for US hours</span>
               </span>
             </span>
 
-            <a className="agrid__cell agrid__cell--wide" href="#">
+            <a className="agrid__cell agrid__cell--wide" href="https://linkedin.com/in/abian-keith-sibug-27ba2419a" target="_blank" rel="noopener noreferrer">
               <span className="agrid__cell-mark agrid__cell-mark--plain">
                 <img src="/placeholders/logo.svg" alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Community or affiliation</span>
-                <span className="agrid__cell-meta">Your role there</span>
+                <span className="agrid__cell-title">LinkedIn Profile</span>
+                <span className="agrid__cell-meta">Connect with Keith</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
             </a>
@@ -146,8 +123,8 @@ export default function AboutGrid() {
 
         <div className="agrid__portrait">
           <img
-            src="/avatar.svg"
-            alt="Portrait placeholder"
+            src="/avatar.png"
+            alt="Keith Sibug - SEO and AI Search Specialist"
             loading="eager"
             decoding="async"
             width={400}

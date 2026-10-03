@@ -1,200 +1,106 @@
-/**
- * The systems tree shown in the Projects "systems" pop-up (and as chips on
- * Home and in the Projects bento card).
- *
- * This file is the ONLY place node copy lives. AIStack.tsx and AIStackGrid.tsx
- * render whatever shape they find here, so swapping in content is a data edit
- * and never a JSX edit. Keep the exported names and types stable.
- *
- * Every value below is a PLACEHOLDER. Shape rules:
- * - The root is you. Its children are the categories (branches).
- * - A branch with `status` is itself a system; a branch without one is a
- *   group whose children are the systems.
- * - Status is what the thing actually does today: "Live" (in use by others),
- *   "Internal" (works, you use it), "Beta".
- * - Logo marks in AIStackGrid.tsx are keyed by the node `id` below.
- */
-
+import type { Icon } from '@phosphor-icons/react'
 import {
-  Sparkle,
-  Coffee,
-  Robot,
-  Article,
-  FilmSlate,
-  UsersThree,
-  Database,
-  SlackLogo,
   MagnifyingGlass,
-  ChatCircleDots,
-  FlowArrow,
-  PhoneCall,
-  Browser,
-  Broadcast,
-  Timer,
-} from '@/components/slab'
-import type { Icon } from '@/components/slab'
-import { profile } from '@/data/profile'
+  Robot,
+  Globe,
+  EnvelopeSimple,
+  PaintBrush,
+  ChartLineUp,
+  Cpu,
+  Play,
+  Envelope,
+  Wrench,
+  Video,
+  Star,
+} from '@phosphor-icons/react'
 
-export type StackStatus = 'Live' | 'Internal' | 'Beta'
-
-/** A vendor mark, masked to a single ink colour so the row reads as one set
- *  rather than a rainbow of brand palettes. Only marks that already exist in
- *  public/icons are listed. */
-export type StackLogo = { src: string; name: string }
-
-export type StackNode = {
-  id: string
-  name: string
-  /** One plain sentence a non-technical client understands. */
-  what: string
-  /** Real stack / model / where it runs. Rendered small and muted. */
-  stack?: string
-  status?: StackStatus
-  /** Phosphor glyph for the card's mark tile. Every node has one. */
-  Icon: Icon
-  logos?: StackLogo[]
-  children?: StackNode[]
+export interface StackNode {
+  id: string;
+  label: string;
+  name: string;
+  what: string;
+  Icon: Icon;
+  status?: string;
+  stack?: string;
+  logos?: { src: string; name: string }[];
+  children?: StackNode[];
 }
 
-const ANTHROPIC: StackLogo = { src: '/icons/anthropic.svg', name: 'Anthropic' }
-const OPENAI: StackLogo = { src: '/icons/openai.svg', name: 'OpenAI' }
-const SLACK: StackLogo = { src: '/icons/slack.svg', name: 'Slack' }
-const NOUS: StackLogo = { src: '/icons/nousresearch.svg', name: 'Nous Research' }
-
-const WHAT = 'PLACEHOLDER - tell me what to put here: one plain line on what this does.'
-const STACK = 'PLACEHOLDER - model, tools, where it runs'
-
-/** Single root: you. Branches are the categories. */
 export const aiStack: StackNode = {
-  id: 'root',
-  Icon: Sparkle,
-  name: profile.name,
-  what: 'PLACEHOLDER - tell me what to put here: one line on the systems you build and run.',
-  stack: 'PLACEHOLDER - your brand',
+  id: "root",
+  label: "Keith's Toolkit",
+  name: "Keith's Toolkit",
+  what: "8+ years of digital marketing tools and systems for real estate and service brands.",
+  Icon: Star,
   children: [
     {
-      id: 'project-a',
-      Icon: Coffee,
-      logos: [ANTHROPIC],
-      name: 'Project A',
-      what: WHAT,
-      stack: STACK,
-      status: 'Live',
-    },
-    {
-      id: 'category-one',
-      Icon: Robot,
-      name: 'Category One',
-      what: 'PLACEHOLDER - tell me what to put here: what the systems in this group have in common.',
+      id: "seo",
+      label: "SEO & AI Search",
+      name: "SEO & AI Search",
+      what: "Ranking on Google and getting cited by AI tools like ChatGPT and Perplexity.",
+      Icon: MagnifyingGlass,
+      status: "Active",
       children: [
-        {
-          id: 'project-b',
-          Icon: Article,
-          logos: [ANTHROPIC],
-          name: 'Project B',
-          what: WHAT,
-          stack: STACK,
-          status: 'Internal',
-        },
-        {
-          id: 'project-c',
-          Icon: FilmSlate,
-          logos: [OPENAI],
-          name: 'Project C',
-          what: WHAT,
-          stack: STACK,
-          status: 'Internal',
-        },
-        {
-          id: 'project-d',
-          Icon: UsersThree,
-          logos: [ANTHROPIC],
-          name: 'Project D',
-          what: WHAT,
-          stack: STACK,
-          status: 'Internal',
-        },
+        { id: "gsc", label: "Google Search Console", name: "Google Search Console", what: "Index monitoring, click-through analysis, sitemap management.", Icon: ChartLineUp },
+        { id: "ga4", label: "Google Analytics", name: "Google Analytics", what: "Traffic analysis, goal setup, monthly reporting.", Icon: ChartLineUp },
+        { id: "yoast", label: "Yoast SEO", name: "Yoast SEO", what: "On-page SEO settings, schema markup, and XML sitemaps.", Icon: Globe },
+        { id: "geo", label: "GEO / AEO Strategy", name: "GEO / AEO Strategy", what: "Optimizing content to appear in ChatGPT, Perplexity, and AI Overviews.", Icon: Robot },
       ],
     },
     {
-      id: 'category-two',
-      Icon: Database,
-      name: 'Category Two',
-      what: 'PLACEHOLDER - tell me what to put here: what the systems in this group have in common.',
+      id: "social",
+      label: "Social Media",
+      name: "Social Media",
+      what: "Building audiences and engagement across Instagram, Facebook, and YouTube.",
+      Icon: Play,
+      status: "Active",
       children: [
-        {
-          id: 'project-e',
-          Icon: SlackLogo,
-          logos: [ANTHROPIC, SLACK],
-          name: 'Project E',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
-        {
-          id: 'project-f',
-          Icon: MagnifyingGlass,
-          logos: [ANTHROPIC],
-          name: 'Project F',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
+        { id: "meta", label: "Meta Business Suite", name: "Meta Business Suite", what: "Publishing, scheduling, and performance insights for Facebook and Instagram.", Icon: Globe },
+        { id: "vidiq", label: "VidIQ", name: "VidIQ", what: "YouTube channel growth, keyword research, and video SEO optimization.", Icon: Video },
+        { id: "higgsfield", label: "Higgsfield AI", name: "Higgsfield AI", what: "AI-assisted short-form video content creation for Reels and Shorts.", Icon: Robot },
       ],
     },
     {
-      id: 'category-three',
-      Icon: ChatCircleDots,
-      name: 'Category Three',
-      what: 'PLACEHOLDER - tell me what to put here: what the systems in this group have in common.',
+      id: "websites",
+      label: "Website Management",
+      name: "Website Management",
+      what: "Building and maintaining websites that rank and convert.",
+      Icon: Globe,
+      status: "Active",
       children: [
-        {
-          id: 'project-g',
-          Icon: FlowArrow,
-          logos: [ANTHROPIC],
-          name: 'Project G',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
-        {
-          id: 'project-h',
-          Icon: PhoneCall,
-          logos: [ANTHROPIC],
-          name: 'Project H',
-          what: WHAT,
-          stack: STACK,
-          status: 'Beta',
-        },
-        {
-          id: 'project-i',
-          Icon: Browser,
-          logos: [ANTHROPIC],
-          name: 'Project I',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
+        { id: "wix", label: "Wix", name: "Wix", what: "Page builds, SEO settings, landing pages, and listing management.", Icon: Globe },
+        { id: "wp", label: "WordPress", name: "WordPress", what: "Content updates, Yoast, plugin management, and speed optimization.", Icon: Globe },
+        { id: "squarespace", label: "Squarespace", name: "Squarespace", what: "Site maintenance and content updates.", Icon: Globe },
+        { id: "lp", label: "Luxury Presence", name: "Luxury Presence", what: "Real estate website management and listing pages.", Icon: Globe },
       ],
     },
     {
-      id: 'project-j',
-      Icon: Broadcast,
-      logos: [NOUS],
-      name: 'Project J',
-      what: WHAT,
-      stack: STACK,
-      status: 'Live',
+      id: "email",
+      label: "Email & Automation",
+      name: "Email & Automation",
+      what: "Campaigns and automated sequences that keep leads warm.",
+      Icon: Envelope,
+      status: "Active",
       children: [
-        {
-          id: 'project-k',
-          Icon: Timer,
-          name: 'Project K',
-          what: WHAT,
-          stack: STACK,
-          status: 'Live',
-        },
+        { id: "mailchimp", label: "Mailchimp", name: "Mailchimp", what: "Campaign design, list segmentation, and automated sequences.", Icon: EnvelopeSimple },
+        { id: "flodesk", label: "Flodesk", name: "Flodesk", what: "Visual email design and subscriber workflows.", Icon: EnvelopeSimple },
+        { id: "activepipe", label: "ActivePipe", name: "ActivePipe", what: "Real estate email automation and drip campaigns.", Icon: EnvelopeSimple },
+        { id: "zapier", label: "Zapier", name: "Zapier", what: "Workflow automations connecting CRMs, forms, and marketing tools.", Icon: Cpu },
+      ],
+    },
+    {
+      id: "design",
+      label: "Design & Creative",
+      name: "Design & Creative",
+      what: "Marketing materials and video content that represent the brand.",
+      Icon: PaintBrush,
+      status: "Active",
+      children: [
+        { id: "canva", label: "Canva", name: "Canva", what: "Social graphics, brochures, postcards, and branded materials.", Icon: PaintBrush },
+        { id: "photoshop", label: "Adobe Photoshop", name: "Adobe Photoshop", what: "Photo editing, retouching, and marketing asset creation.", Icon: PaintBrush },
+        { id: "premiere", label: "Adobe Premiere", name: "Adobe Premiere", what: "Video editing for social, YouTube, and property tours.", Icon: Video },
+        { id: "claude", label: "Claude & ChatGPT", name: "Claude & ChatGPT", what: "AI-assisted content writing, SEO copy, and workflow automation.", Icon: Wrench },
       ],
     },
   ],
-}
+};

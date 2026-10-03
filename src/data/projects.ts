@@ -1,98 +1,96 @@
-export type AppStat = { value: string; label: string }
-
-export type AppProject = {
-  name: string
-  tagline: string
-  description: string
-  /** Optional - omit for gradient placeholder cards */
-  imageSrc?: string
-  /** CSS object-position override. Defaults to 'top center'. */
-  imagePosition?: string
-  /** External brand color - not a site token. Passed via --app-color inline prop. */
-  accentColor: string
-  stats: AppStat[]
-  badge: string
+export interface Project {
+  id: string;
+  client: string;
+  title: string;
+  description: string;
+  tags: string[];
+  image?: string;
+  url?: string;
 }
 
-/** @deprecated use AppProject */
-export type MobileApp = AppProject
+export interface AppProject {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  badge: string;
+  accentColor: string;
+  imageSrc?: string;
+  stats: { label: string; value: string }[];
+}
 
-/**
- * Your apps. Every value is a PLACEHOLDER. Screenshots live in
- * public/placeholders/ - swap in your own (960x514 works well).
- */
-const STATS: AppStat[] = [
-  { value: '0', label: 'Stat one' },
-  { value: '0', label: 'Stat two' },
-  { value: '0', label: 'Stat three' },
-]
+export const projects: Project[] = [
+  {
+    id: "realiv",
+    client: "KKRG / REALIV",
+    title: "Real Estate Brand — SEO, Website & AI Search",
+    description:
+      "Full-service digital presence for a Scottsdale real estate team over 4.5 years: rebuilt their Wix website, implemented technical SEO, and established GEO/AEO visibility.",
+    tags: ["SEO", "GEO/AEO", "Wix", "Social Media", "Email", "Video", "Design"],
+    url: "https://byrealiv.com",
+  },
+  {
+    id: "margot",
+    client: "Margot European Spa",
+    title: "Spa & Wellness — Social Media & Brand Design",
+    description:
+      "Branded social media content and promotional graphics for a luxury European spa, maintaining consistent visual identity across Instagram and Facebook.",
+    tags: ["Social Media", "Graphic Design", "Brand", "Content"],
+  },
+  {
+    id: "dripiv",
+    client: "DripIV Therapy",
+    title: "IV Therapy Clinic — Social Media & Content",
+    description:
+      "Social media content and branded marketing assets for an IV therapy clinic, growing audience and driving appointment inquiries.",
+    tags: ["Social Media", "Graphic Design", "Content", "Video"],
+  },
+];
 
-const DESC = 'PLACEHOLDER - tell me what to put here: what the app does, who it is for, and where it is published.'
-
-export const mobileApps: MobileApp[] = [
+export const mobileApps: AppProject[] = [
   {
-    name: 'App Name One',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-1.jpg',
-    imagePosition: '50% 30%',
-    accentColor: '#2563EB',
-    stats: STATS,
-    badge: 'Badge',
+    id: "realiv-website",
+    name: "REALIV Website",
+    tagline: "Built for search. Designed to convert.",
+    description:
+      "Rebuilt and managed the KKRG/REALIV Wix website with full SEO implementation, landing pages, and GEO/AEO content strategy to rank in Google and AI search engines.",
+    badge: "Live",
+    accentColor: "#22C55E",
+    imageSrc: "/placeholders/project-1.jpg",
+    stats: [
+      { label: "Years Managed", value: "4.5" },
+      { label: "Platform", value: "Wix" },
+      { label: "Strategy", value: "SEO + GEO" },
+    ],
   },
   {
-    name: 'App Name Two',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-2.jpg',
-    accentColor: '#7C3AED',
-    stats: STATS,
-    badge: 'Badge',
+    id: "margot-social",
+    name: "Margot European Spa",
+    tagline: "Brand consistency across every post.",
+    description:
+      "Created and managed branded social media content and promotional design assets for a luxury European spa brand.",
+    badge: "Social",
+    accentColor: "#8B5CF6",
+    imageSrc: "/placeholders/project-2.jpg",
+    stats: [
+      { label: "Platforms", value: "2" },
+      { label: "Type", value: "Social + Design" },
+      { label: "Focus", value: "Brand" },
+    ],
   },
   {
-    name: 'App Name Three',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-3.jpg',
-    accentColor: '#16A34A',
-    stats: STATS,
-    badge: 'Badge',
+    id: "dripiv-content",
+    name: "DripIV Therapy",
+    tagline: "Content that drives appointments.",
+    description:
+      "Produced social media content and branded marketing materials for an IV therapy wellness clinic.",
+    badge: "Content",
+    accentColor: "#0EA5E9",
+    imageSrc: "/placeholders/project-3.jpg",
+    stats: [
+      { label: "Platforms", value: "2" },
+      { label: "Type", value: "Social + Video" },
+      { label: "Focus", value: "Growth" },
+    ],
   },
-]
-
-export const webApps: AppProject[] = [
-  {
-    name: 'Web App One',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    accentColor: '#0EA5E9',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Two',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    accentColor: '#EF4444',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Three',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/project-3.jpg',
-    accentColor: '#0891B2',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Four',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/project-4.jpg',
-    accentColor: '#F59E0B',
-    stats: STATS,
-    badge: 'Badge',
-  },
-]
+];
