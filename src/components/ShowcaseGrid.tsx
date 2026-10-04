@@ -15,10 +15,10 @@ export default function ShowcaseGrid() {
         <div className="ktools__head-copy">
           <span className="pgrid__eyebrow">Showcase</span>
           <h1 className="pgrid__title" id="showcase-title">
-            Your flagship product, and the people using it.
+            The full toolkit behind 8+ years of search results.
           </h1>
           <p className="pgrid__lede">
-            PLACEHOLDER - tell me what to put here: one line on what this product is and why a visitor should look at it.
+            Every tool, strategy, and system I use to help real estate and service brands rank on Google and get cited by AI.
           </p>
         </div>
 
@@ -27,14 +27,14 @@ export default function ShowcaseGrid() {
             listing, and point the link at it. */}
         <div className="ktools__vote">
           <p className="ktools__vote-label">
-            Featured on
+            Certified by
             <span aria-hidden="true" className="ktools__vote-dot" />
-            <span className="ktools__vote-ask">Placeholder</span>
+            <span className="ktools__vote-ask">Google</span>
           </p>
-          <a className="ktools__vote-frame ktools__vote-card" href="#">
+          <a className="ktools__vote-frame ktools__vote-card" href="https://skillshop.withgoogle.com" target="_blank" rel="noopener noreferrer">
             <img src="/placeholders/badge.svg" alt="" width="48" height="48" />
             <span className="ktools__vote-text">
-              PLACEHOLDER - a badge, award or launch link
+              Google Analytics Certified Professional
             </span>
           </a>
         </div>

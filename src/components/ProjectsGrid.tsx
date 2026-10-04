@@ -66,14 +66,12 @@ const APP_SHOTS = [
   '/placeholders/extension-2.jpg',
 ]
 
-const BUILD_DESC = 'PLACEHOLDER - tell me what to put here: two lines on what this project is and the result it got.'
-
 /** The three featured builds: each its own card in the stack, each its own
  *  pop-up. */
 const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Placeholder category', title: 'Featured Project One', desc: BUILD_DESC, Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured build', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'ai', index: '04', kicker: 'Placeholder category', title: 'Featured Project Two', desc: BUILD_DESC, Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured build', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'ai', index: '05', kicker: 'Placeholder category', title: 'Featured Project Three', desc: BUILD_DESC, Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Featured build', Section: WorkflowPanel, Preview: () => null },
+  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Real Estate', title: 'KKRG / REALIV — Full-Service Marketing', desc: 'SEO, website rebuilds, social media, email campaigns, and GEO/AEO strategy for a Scottsdale real estate team over 4.5 years.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured client', Section: TicketingPanel, Preview: () => null },
+  { id: 'framework', cat: 'work', index: '04', kicker: 'Wellness', title: 'Margot European Spa — Brand & Social', desc: 'Branded social media content and promotional graphics for a luxury European spa, maintaining consistent visual identity across Instagram and Facebook.', Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured client', Section: FrameworkPanel, Preview: () => null },
+  { id: 'workflow', cat: 'work', index: '05', kicker: 'Health & Wellness', title: 'DripIV Therapy — Social & Content', desc: 'Social media content and branded marketing assets for an IV therapy clinic, growing audience and driving appointment inquiries.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX], eyebrow: 'Featured client', Section: WorkflowPanel, Preview: () => null },
 ]
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
@@ -99,8 +97,8 @@ function WorkflowsPreview() {
 function PlanPreview() {
   return (
     <div className="bento__media bento__doc" aria-hidden="true">
-      <span className="bento__doc-eyebrow">Placeholder document</span>
-      <span className="bento__doc-title">Your document title here.</span>
+      <span className="bento__doc-eyebrow">GEO / AEO Strategy</span>
+      <span className="bento__doc-title">AI Search Content Plan</span>
       <span className="bento__doc-flow">
         <i>Step</i>
         <i>Step</i>
@@ -162,11 +160,11 @@ function AppsPreview() {
 }
 
 const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'Project Title', desc: 'PLACEHOLDER - tell me what to put here: what these screens show.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Screenshots', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
-  { id: 'plan', cat: 'work', index: '02', title: 'Sample Document', desc: 'PLACEHOLDER - tell me what to put here: the document this opens.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
-  { id: 'funnels', cat: 'sites', index: '06', title: 'Pages and sites', desc: 'PLACEHOLDER - the pages in this reel. Spin the reel.', Icon: GlobeIcon, logos: [GHL], eyebrow: 'Pages and sites', Section: BarrelPanel, Preview: FunnelsPreview },
-  { id: 'ai', cat: 'ai', index: '07', title: 'Your systems title here', desc: 'PLACEHOLDER - tell me what to put here: the systems you run.', Icon: SparkIcon, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Your systems', Section: AIWindow, Preview: AIPreview },
-  { id: 'apps', cat: 'apps', index: '08', title: 'Apps and tools', desc: 'PLACEHOLDER - tell me what to put here: the apps and tools you ship.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Your apps', Section: AppsWindow, span: 2, Preview: AppsPreview },
+  { id: 'workflows', cat: 'work', index: '01', title: 'SEO & Website Work', desc: 'Technical SEO, Wix rebuilds, Google Search Console monitoring, and on-page optimization across real estate and service brands.', Icon: FlowIcon, logos: [GHL], eyebrow: 'SEO & Websites', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
+  { id: 'plan', cat: 'work', index: '02', title: 'Content Strategy', desc: 'GEO/AEO content structured for AI citation — getting clients found in ChatGPT, Perplexity, and Google AI Overviews.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Content & GEO/AEO', Section: PlanPanel, Preview: PlanPreview },
+  { id: 'funnels', cat: 'sites', index: '06', title: 'Landing Pages & Sites', desc: 'Conversion-focused landing pages and real estate listing sites built on Wix, WordPress, and Squarespace.', Icon: GlobeIcon, logos: [GHL], eyebrow: 'Pages and sites', Section: BarrelPanel, Preview: FunnelsPreview },
+  { id: 'ai', cat: 'ai', index: '07', title: 'Marketing Toolkit', desc: '30+ tools spanning SEO, social media, email automation, design, and AI search — all actively used for client campaigns.', Icon: SparkIcon, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Tools & systems', Section: AIWindow, Preview: AIPreview },
+  { id: 'apps', cat: 'apps', index: '08', title: 'Design & Creative Work', desc: 'Branded social graphics, video edits, email templates, and print materials produced in Canva, Photoshop, and Premiere.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Design & creative', Section: AppsWindow, span: 2, Preview: AppsPreview },
 ]
 
 /** The icon tile, or the real marks stacked horizontally in its place. */
@@ -300,9 +298,9 @@ export default function ProjectsGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Projects</span>
         <h1 className="pgrid__title" id="projects-title">
-          Your projects headline goes right here.
+          Real brands. Real search results.
         </h1>
-        <p className="pgrid__lede">PLACEHOLDER - tell me what to put here: one line on the work below. Open a card to see it full size.</p>
+        <p className="pgrid__lede">Three brands I have grown from the ground up — SEO, social, websites, and more. Open a card to see the work.</p>
       </header>
 
       {phone && (
