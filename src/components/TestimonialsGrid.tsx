@@ -1,40 +1,5 @@
-import { useState } from 'react'
-import { Play, Gauge, Robot, Code } from '@/components/slab'
+import { Gauge, Robot, Code } from '@/components/slab'
 import type { Icon } from '@/components/slab'
-
-type Clip = {
-  id: string
-  index: string
-  src: string
-  poster: string
-  duration: string
-  kicker: string
-  width: number
-  height: number
-}
-
-const CLIPS: Clip[] = [
-  {
-    id: 'clip-1',
-    index: '01',
-    src: '',
-    poster: '/placeholders/testimonial-1.jpg',
-    duration: '0:00',
-    kicker: 'Client testimonial',
-    width: 720,
-    height: 1080,
-  },
-  {
-    id: 'clip-2',
-    index: '02',
-    src: '',
-    poster: '/placeholders/testimonial-2.jpg',
-    duration: '0:00',
-    kicker: 'Client testimonial',
-    width: 720,
-    height: 1080,
-  },
-]
 
 type Client = {
   index: string
@@ -95,15 +60,6 @@ const CLIENTS: Client[] = [
 ]
 
 export default function TestimonialsGrid() {
-  const [active, setActive] = useState(0)
-  const [playing, setPlaying] = useState(false)
-  const clip = CLIPS[active]
-  const hasVideo = clip.src !== ''
-  const pick = (i: number) => {
-    setActive(i)
-    setPlaying(false)
-  }
-
   return (
     <section className="pgrid tgrid" aria-labelledby="testimonials-title">
       <header className="pgrid__head">
@@ -117,81 +73,6 @@ export default function TestimonialsGrid() {
       </header>
 
       <div className="home__glass tgrid__glass">
-        <div className="tgrid__reel">
-          <div className="tgrid__stage">
-            {playing && hasVideo ? (
-              <video
-                key={clip.id}
-                className="tgrid__video"
-                src={clip.src}
-                poster={clip.poster}
-                width={clip.width}
-                height={clip.height}
-                controls
-                autoPlay
-                playsInline
-                aria-label={`Video testimonial ${clip.index} from a client`}
-              />
-            ) : (
-              <button
-                type="button"
-                className="tgrid__cover"
-                onClick={() => hasVideo && setPlaying(true)}
-                disabled={!hasVideo}
-                aria-label={
-                  hasVideo
-                    ? `Play client testimonial ${clip.index}, ${clip.duration}`
-                    : `Client testimonial ${clip.index}, no video added yet`
-                }
-              >
-                <img
-                  key={clip.id}
-                  className="tgrid__cover-img"
-                  src={clip.poster}
-                  alt=""
-                  decoding="async"
-                />
-                <span className="tgrid__cover-shade" aria-hidden="true" />
-                {hasVideo && (
-                  <span className="tgrid__cover-play" aria-hidden="true">
-                    <Play size={26} weight="fill" />
-                  </span>
-                )}
-                <span className="tgrid__cover-meta" aria-hidden="true">
-                  <span className="tgrid__cover-kicker">
-                    {clip.kicker} {clip.index}
-                  </span>
-                  <span className="tgrid__cover-sub">
-                    {hasVideo
-                      ? `${clip.duration} - Tap to play`
-                      : 'Coming soon'}
-                  </span>
-                </span>
-              </button>
-            )}
-          </div>
-
-          <div className="tgrid__picker" role="group" aria-label="Choose a testimonial">
-            {CLIPS.map((c, i) => (
-              <button
-                key={c.id}
-                type="button"
-                className={`tgrid__pick${i === active ? ' is-active' : ''}`}
-                onClick={() => pick(i)}
-                aria-pressed={i === active}
-              >
-                <span className="tgrid__pick-thumb" aria-hidden="true">
-                  <img src={c.poster} alt="" loading="lazy" decoding="async" />
-                </span>
-                <span className="tgrid__pick-copy">
-                  <span className="tgrid__pick-kicker">Testimonial {c.index}</span>
-                  <span className="tgrid__pick-meta">{c.duration}</span>
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-
         <div className="tgrid__ledger">
           <div className="tgrid__ledger-head">
             <h2 className="tgrid__ledger-title">Clients I have worked with.</h2>
