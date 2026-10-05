@@ -45,6 +45,7 @@ export const aiStack: StackNode = {
         { id: "ga4", label: "Google Analytics", name: "Google Analytics", what: "Traffic analysis, goal setup, monthly reporting.", Icon: ChartLineUp },
         { id: "yoast", label: "Yoast SEO", name: "Yoast SEO", what: "On-page SEO settings, schema markup, and XML sitemaps.", Icon: Globe },
         { id: "geo", label: "GEO / AEO Strategy", name: "GEO / AEO Strategy", what: "Optimizing content to appear in ChatGPT, Perplexity, and AI Overviews.", Icon: Robot },
+        { id: "gbp", label: "Google Business Profile", name: "Google Business Profile", what: "GBP optimization, review management, and local SEO for service brands.", Icon: ChartLineUp },
       ],
     },
     {
@@ -72,6 +73,7 @@ export const aiStack: StackNode = {
         { id: "wp", label: "WordPress", name: "WordPress", what: "Content updates, Yoast, plugin management, and speed optimization.", Icon: Globe },
         { id: "squarespace", label: "Squarespace", name: "Squarespace", what: "Site maintenance and content updates.", Icon: Globe },
         { id: "lp", label: "Luxury Presence", name: "Luxury Presence", what: "Real estate website management and listing pages.", Icon: Globe },
+        { id: "rela", label: "RELA", name: "RELA", what: "Real estate listing and property management platform.", Icon: Globe },
       ],
     },
     {
@@ -86,6 +88,7 @@ export const aiStack: StackNode = {
         { id: "flodesk", label: "Flodesk", name: "Flodesk", what: "Visual email design and subscriber workflows.", Icon: EnvelopeSimple },
         { id: "activepipe", label: "ActivePipe", name: "ActivePipe", what: "Real estate email automation and drip campaigns.", Icon: EnvelopeSimple },
         { id: "zapier", label: "Zapier", name: "Zapier", what: "Workflow automations connecting CRMs, forms, and marketing tools.", Icon: Cpu },
+        { id: "fub", label: "Follow Up Boss", name: "Follow Up Boss", what: "Real estate CRM management — lead tracking, pipelines, and automated follow-up sequences.", Icon: EnvelopeSimple },
       ],
     },
     {
@@ -100,6 +103,7 @@ export const aiStack: StackNode = {
         { id: "photoshop", label: "Adobe Photoshop", name: "Adobe Photoshop", what: "Photo editing, retouching, and marketing asset creation.", Icon: PaintBrush },
         { id: "premiere", label: "Adobe Premiere", name: "Adobe Premiere", what: "Video editing for social, YouTube, and property tours.", Icon: Video },
         { id: "claude", label: "Claude & ChatGPT", name: "Claude & ChatGPT", what: "AI-assisted content writing, SEO copy, and workflow automation.", Icon: Wrench },
+        { id: "capcut", label: "CapCut", name: "CapCut", what: "Short-form video editing for Reels, TikTok, and social media clips.", Icon: Video },
       ],
     },
   ],

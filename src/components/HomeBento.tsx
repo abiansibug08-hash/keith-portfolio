@@ -46,6 +46,8 @@ const CLIENTS = [
   { name: 'KKRG / REALIV', role: 'Marketing Admin — 4.5 years', work: 'SEO · Social · Website · Email · Design', logo: undefined },
   { name: 'Margot European Spa', role: 'Social Media & Design', work: 'Social Media · Graphic Design · Brand', logo: undefined },
   { name: 'DripIV Therapy', role: 'Content & Social', work: 'Social Media · Video · Content', logo: undefined },
+  { name: 'Kacie Henke Real Estate', role: 'Operations Admin — 1.5 years', work: 'CRM · SEO · Social · Email · Design', logo: undefined },
+  { name: 'Nicholas Ryan Team', role: 'Marketing Admin (VA) — 3 years', work: 'WordPress · Social · Video · Ads', logo: undefined },
 ]
 
 // Three photos of you, fanned. Small copies are fine - the fan shows them under 100px.

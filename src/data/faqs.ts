@@ -10,7 +10,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "What types of businesses do you work with?",
-    a: "Most of my experience is with real estate teams and service-based businesses in the U.S. market. I've worked with realtors, spa and wellness brands, and IV therapy clinics - handling everything from their websites and SEO to social media, email, and design.",
+    a: "Most of my experience is with real estate teams and service-based businesses in the U.S. market. I've worked with realtors (KKRG/REALIV and Kacie Henke Real Estate), spa and wellness brands (Margot European Spa), and IV therapy clinics (DripIV Therapy) - handling everything from CRM management and website SEO to social media, email automations, and design.",
   },
   {
     q: "Do you work full-time or on a retainer?",
@@ -18,7 +18,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "What tools and platforms are you proficient in?",
-    a: "For SEO: Google Search Console, Google Analytics, Yoast, and AI-assisted auditing with Claude and ChatGPT. For websites: Wix, WordPress, Squarespace, and Luxury Presence. For content and design: Canva, Adobe Premiere, Photoshop, and Higgsfield AI. For email: Mailchimp, Flodesk, and ActivePipe. For automation: Zapier. And for YouTube: VidIQ.",
+    a: "For SEO: Google Search Console, Google Analytics, Google Business Profile, Yoast, and AI-assisted auditing with Claude and ChatGPT. For websites: Wix, WordPress, Squarespace, Luxury Presence, and RELA. For CRM: Follow Up Boss. For content and design: Canva, Adobe Photoshop, Adobe Premiere, CapCut, and Higgsfield AI. For email: Mailchimp, Flodesk, and ActivePipe. For automation: Zapier. And for YouTube: VidIQ.",
   },
   {
     q: "How quickly can you start?",

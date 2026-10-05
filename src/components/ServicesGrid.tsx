@@ -105,8 +105,20 @@ const SERVICES: Service[] = [
     logos: [CLAUDE_ICON, ZAPIER, GWS],
     bullets: [
       'Canva and Photoshop design work',
-      'Adobe Premiere video editing',
+      'Adobe Premiere and CapCut video editing',
       'AI-assisted content with Higgsfield',
+    ],
+  },
+  {
+    index: '06',
+    title: 'CRM & Marketing Operations',
+    description: 'CRM setup and management, lead pipeline organization, automated follow-up sequences, and SOP documentation for real estate teams.',
+    chip: 'Monthly Retainer',
+    logos: [GWS, ZAPIER, CLAUDE_ICON],
+    bullets: [
+      'Follow Up Boss CRM management',
+      'Lead pipeline and automation setup',
+      'SOPs, reporting, and admin support',
     ],
   },
 ]
@@ -183,7 +195,7 @@ export default function ServicesGrid() {
                 <span className="bento__head">
                   <span className="sgrid__service-top">
                     <Marks logos={s.logos} />
-                    <span className="sgrid__service-index" aria-hidden="true">{s.index} / 05</span>
+                    <span className="sgrid__service-index" aria-hidden="true">{s.index} / 06</span>
                   </span>
                   <span className="bento__title">{s.title}</span>
                   <span className="bento__desc">{s.description}</span>

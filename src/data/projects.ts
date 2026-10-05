@@ -45,6 +45,23 @@ export const projects: Project[] = [
       "Social media content and branded marketing assets for an IV therapy clinic, growing audience and driving appointment inquiries.",
     tags: ["Social Media", "Graphic Design", "Content", "Video"],
   },
+  {
+    id: "kacie-henke",
+    client: "Kacie Henke Real Estate",
+    title: "Real Estate Brand — CRM, Operations & Marketing",
+    description:
+      "Operations Admin and digital marketing manager for a Phoenix-area real estate agent: CRM management in Follow Up Boss, website SEO, social media, email automations, and branded content.",
+    tags: ["CRM", "SEO", "Social Media", "Email", "Design", "Follow Up Boss"],
+    url: "https://www.kaciehenke.com",
+  },
+  {
+    id: "nicholas-ryan",
+    client: "Nicholas Ryan Team",
+    title: "Real Estate Team — Social Media & Digital Marketing",
+    description:
+      "Marketing Admin (VA) for a real estate team: WordPress website management, social media content, video production, and Facebook/Google Ads.",
+    tags: ["WordPress", "Social Media", "Video", "Facebook Ads", "Google Ads"],
+  },
 ];
 
 export const mobileApps: AppProject[] = [
@@ -91,6 +108,21 @@ export const mobileApps: AppProject[] = [
       { label: "Platforms", value: "2" },
       { label: "Type", value: "Social + Video" },
       { label: "Focus", value: "Growth" },
+    ],
+  },
+  {
+    id: "kacie-henke-website",
+    name: "Kacie Henke Real Estate",
+    tagline: "CRM, SEO, and operations — all in one role.",
+    description:
+      "Operations Admin for a Phoenix-area real estate agent: managed Follow Up Boss CRM, Wix website SEO, social media, email campaigns, property listings, and branded content.",
+    badge: "Live",
+    accentColor: "#F59E0B",
+    imageSrc: "/placeholders/project-4.jpg",
+    stats: [
+      { label: "Duration", value: "1.5 yrs" },
+      { label: "CRM", value: "Follow Up Boss" },
+      { label: "Platform", value: "Wix" },
     ],
   },
 ];

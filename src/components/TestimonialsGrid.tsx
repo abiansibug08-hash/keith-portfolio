@@ -74,6 +74,24 @@ const CLIENTS: Client[] = [
     work: ['Social Media', 'Graphic Design', 'Content', 'Video'],
     Icon: Code,
   },
+  {
+    index: '04',
+    name: 'Kacie Henke Real Estate',
+    role: 'Operations Admin — Feb 2025 to Jun 2026',
+    daily:
+      'Managed CRM (Follow Up Boss), Wix website SEO, social media content, email automations, property listings, branded graphics, and SOPs for a Phoenix-area real estate agent.',
+    work: ['Follow Up Boss', 'Wix SEO', 'Social Media', 'Email', 'Design', 'CRM'],
+    Icon: Gauge,
+  },
+  {
+    index: '05',
+    name: 'Nicholas Ryan Team',
+    role: 'Marketing Admin (VA) — Dec 2018 to Dec 2021',
+    daily:
+      'WordPress website management, social media content, video production, and Facebook and Google Ads management for a real estate team.',
+    work: ['WordPress', 'Social Media', 'Video', 'Facebook Ads', 'Google Ads'],
+    Icon: Robot,
+  },
 ]
 
 export default function TestimonialsGrid() {

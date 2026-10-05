@@ -35,6 +35,11 @@ const CAPABILITIES: Capability[] = [
     title: 'AI-Powered Content & Automation',
     marks: [CLAUDE, ZAPIER, SLACK],
   },
+  {
+    index: '05',
+    title: 'CRM & Marketing Operations',
+    marks: [ZAPIER, CLAUDE, GWS],
+  },
 ]
 
 export default function AboutGrid() {
@@ -58,11 +63,15 @@ export default function AboutGrid() {
           </p>
 
           <p className="agrid__note">
-            Most of my career has been with{' '}
+            Most recently I was Operations Admin at{' '}
+            <a className="agrid__link" href="https://www.kaciehenke.com" target="_blank" rel="noopener noreferrer">
+              Kacie Henke Real Estate
+            </a>
+            {' '}— managing CRM, website SEO, email automations, and social content. Before that, I spent 4.5 years as Marketing Admin at{' '}
             <a className="agrid__link" href="https://byrealiv.com" target="_blank" rel="noopener noreferrer">
               KKRG / REALIV
             </a>
-            {' '}- a Scottsdale-based real estate team where I built and ran their entire digital presence: SEO, website, GEO/AEO, social media, email marketing, and design.
+            {' '}building their full digital presence from the ground up.
           </p>
 
           <ul className="agrid__caps" role="list">

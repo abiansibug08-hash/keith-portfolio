@@ -36,7 +36,7 @@ export const profile = {
   ],
   stats: [
     { label: "Years Experience", value: "8+", Icon: Calendar },
-    { label: "Brands Managed", value: "3", Icon: Buildings },
+    { label: "Brands Managed", value: "5+", Icon: Buildings },
     { label: "Tools Mastered", value: "30+", Icon: Wrench },
   ],
 };
