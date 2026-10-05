@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SealCheck, CaretRight, Play, Stack, Coffee } from '@/components/slab'
+import { SealCheck, CaretRight, Play, Stack } from '@/components/slab'
 import { profile } from '@/data/profile'
 import QuickMenu from './QuickMenu'
 
@@ -49,9 +49,8 @@ export function HomeStats() {
 const TILES = [
   { n: '01', label: 'Projects', to: '/projects', title: 'Real clients. Real results.', desc: 'REALIV, Margot Spa, DripIV Therapy.', img: '/placeholders/project-1.jpg' },
   { n: '02', label: 'Services', to: '/services', title: 'Everything your brand needs to get found.', desc: 'SEO, AI search, social, websites, email, design.', Icon: Stack },
-  { n: '03', label: 'Showcase', to: '/showcase', title: 'Rank first. Grow everywhere.', desc: 'My full AI search and SEO toolkit.', Icon: Coffee, accent: true },
-  { n: '04', label: 'Clients', to: '/testimonials', title: 'Brands I have grown.', desc: 'Long-term real estate and wellness clients.', img: '/placeholders/testimonial-1.jpg' },
-  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: '8+ years in SEO and digital marketing.', img: profile.avatarSrc },
+  { n: '03', label: 'Clients', to: '/testimonials', title: 'Brands I have grown.', desc: 'Long-term real estate and wellness clients.', img: '/placeholders/testimonial-1.jpg' },
+  { n: '04', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: '8+ years in SEO and digital marketing.', img: profile.avatarSrc },
 ] as const
 
 export function HomeExplore() {

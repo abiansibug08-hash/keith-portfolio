@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sample Document - Placeholder</title>
+<title>GEO / AEO Content Strategy — KKRG / REALIV</title>
 <meta name="robots" content="noindex">
 <style>
   :root {
@@ -14,6 +14,10 @@
     --tint: #f2efe6;
     --accent: #ff5722;
     --accent-soft: #fff1ea;
+    --green: #16a34a;
+    --green-soft: #f0fdf4;
+    --blue: #0369a1;
+    --blue-soft: #f0f9ff;
     --radius: 14px;
   }
   @media (prefers-color-scheme: dark) {
@@ -24,6 +28,8 @@
       --line: #262836;
       --tint: #161824;
       --accent-soft: #2a1710;
+      --green-soft: #052e16;
+      --blue-soft: #082f49;
     }
   }
   * { box-sizing: border-box; }
@@ -31,96 +37,238 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  .doc { max-width: 760px; margin: 0 auto; padding: 56px 20px 80px; }
+  .doc { max-width: 740px; margin: 0 auto; padding: 48px 20px 72px; }
+
+  /* Tag */
   .tag {
     display: inline-flex; align-items: center; gap: 8px;
-    font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    font: 700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
     letter-spacing: .08em; text-transform: uppercase;
     color: var(--accent); background: var(--accent-soft);
-    padding: 7px 10px; border-radius: 999px;
+    padding: 6px 10px; border-radius: 999px;
   }
-  .tag svg { width: 12px; height: 12px; }
-  h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.1; letter-spacing: -.02em; margin: 18px 0 12px; }
-  .lede { color: var(--muted); font-size: 18px; margin: 0 0 28px; max-width: 58ch; }
-  .meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-bottom: 44px; }
-  .meta div { background: var(--paper); padding: 14px 16px; }
-  .meta span { display: block; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-  .meta b { font-weight: 600; font-size: 15px; }
-  h2 { font-size: 22px; letter-spacing: -.01em; margin: 44px 0 10px; display: flex; gap: 12px; align-items: baseline; }
-  h2 i { font: 600 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; font-style: normal; color: var(--accent); }
-  p { margin: 0 0 12px; }
-  .hint {
-    border: 1px dashed var(--line); background: var(--tint);
-    border-radius: var(--radius); padding: 14px 16px; color: var(--muted); font-size: 15px;
+  .tag svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+  h1 {
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.1; letter-spacing: -.025em;
+    margin: 16px 0 10px;
   }
-  .hint strong { color: var(--ink); }
-  .flow { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
+  .lede { color: var(--muted); font-size: 16px; margin: 0 0 28px; max-width: 58ch; line-height: 1.55; }
+
+  /* Meta bar */
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; margin-bottom: 40px;
+  }
+  .meta div { background: var(--paper); padding: 13px 15px; }
+  .meta span { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+  .meta b { font-weight: 600; font-size: 14px; }
+
+  /* Section headers */
+  h2 {
+    font-size: 19px; letter-spacing: -.01em;
+    margin: 40px 0 10px;
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  h2 i { font: 700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace; font-style: normal; color: var(--accent); }
+
+  p { margin: 0 0 10px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+
+  /* Cards */
+  .card {
+    border: 1px solid var(--line); background: var(--tint);
+    border-radius: var(--radius); padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .card p { margin: 0; }
+  .card-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+
+  /* Flow */
+  .flow { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 6px; align-items: center; }
   .flow span {
     border: 1px solid var(--line); background: var(--paper);
-    border-radius: 10px; padding: 8px 12px; font-size: 14px; font-weight: 500;
+    border-radius: 10px; padding: 7px 12px;
+    font-size: 13px; font-weight: 500; color: var(--ink);
   }
-  .flow span.on { border-color: var(--accent); color: var(--accent); }
-  .flow em { align-self: center; color: var(--muted); font-style: normal; }
-  ul.list { padding-left: 20px; margin: 8px 0 0; color: var(--muted); }
-  ul.list li { margin: 4px 0; }
-  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-  @media (max-width: 560px) { .meta { grid-template-columns: 1fr; } }
+  .flow span.on { border-color: var(--accent); color: var(--accent); font-weight: 700; }
+  .flow em { color: var(--muted); font-style: normal; font-size: 13px; }
+
+  /* Campaign grid */
+  .campaigns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+  .campaign {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 14px 15px; background: var(--paper);
+  }
+  .campaign-label {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: .07em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 999px; margin-bottom: 8px;
+  }
+  .campaign-label.seo { color: var(--green); background: var(--green-soft); }
+  .campaign-label.social { color: var(--blue); background: var(--blue-soft); }
+  .campaign-label.geo { color: var(--accent); background: var(--accent-soft); }
+  .campaign-label.email { color: #7c3aed; background: #f5f3ff; }
+  @media (prefers-color-scheme: dark) {
+    .campaign-label.email { background: #2e1065; }
+  }
+  .campaign h3 { font-size: 14px; font-weight: 700; margin: 0 0 5px; color: var(--ink); letter-spacing: -.01em; }
+  .campaign p { font-size: 13px; margin: 0; }
+
+  /* Bullet list */
+  ul.list {
+    padding-left: 0; margin: 10px 0 0; list-style: none;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  ul.list li {
+    display: flex; align-items: flex-start; gap: 9px;
+    font-size: 14px; color: var(--muted);
+  }
+  ul.list li::before {
+    content: '→'; color: var(--accent); flex-shrink: 0;
+    font-weight: 700; margin-top: 1px;
+  }
+
+  /* Outcome row */
+  .outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+  .outcome {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 14px 15px; background: var(--paper); text-align: center;
+  }
+  .outcome-val { font-size: 22px; font-weight: 800; letter-spacing: -.03em; color: var(--ink); display: block; }
+  .outcome-label { font-size: 12px; color: var(--muted); margin-top: 2px; display: block; }
+
+  footer {
+    margin-top: 48px; padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 12px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  }
+
+  @media (max-width: 560px) {
+    .meta { grid-template-columns: 1fr; }
+    .campaigns { grid-template-columns: 1fr; }
+    .outcomes { grid-template-columns: 1fr 1fr; }
+  }
 </style>
 </head>
 <body>
   <main class="doc">
+
     <span class="tag">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z"/><path d="M9 1.5V5h4"/></svg>
-      <span id="doc-kind">Placeholder sample document</span>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M4 1.5h5.5L13 5v9.5H4z"/><path d="M9 1.5V5h4"/>
+      </svg>
+      Content Strategy · GEO / AEO
     </span>
-    <h1 id="doc-title">Your document title goes here.</h1>
-    <p class="lede">PLACEHOLDER - tell me what to put here: a one-line summary of this plan or case study, who it was for, and the result.</p>
+
+    <h1>AI Search &amp; Social Content Plan</h1>
+    <p class="lede">
+      How I structured content for KKRG&nbsp;/&nbsp;REALIV to rank on Google and get cited by ChatGPT,
+      Perplexity, and Google AI Overviews — alongside ongoing social media campaigns across
+      Instagram, Facebook, and YouTube.
+    </p>
 
     <div class="meta">
-      <div><span>Client</span><b>Client Name</b></div>
-      <div><span>Timeline</span><b>0 weeks</b></div>
-      <div><span>Outcome</span><b>Result metric</b></div>
+      <div><span>Client</span><b>KKRG / REALIV</b></div>
+      <div><span>Duration</span><b>4.5 Years</b></div>
+      <div><span>Focus</span><b>SEO · GEO/AEO · Social</b></div>
     </div>
 
-    <h2><i>01</i>The problem</h2>
-    <div class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> what was broken or missing before you started, in two or three sentences.</div>
+    <!-- 01 The challenge -->
+    <h2><i>01</i> The challenge</h2>
+    <p>
+      KKRG / REALIV needed to grow search visibility in a competitive Scottsdale real estate market
+      and stay visible as more buyers shifted to asking AI tools instead of typing keywords into Google.
+      Their existing site had thin content, no schema markup, and low engagement on social — no system
+      to generate consistent leads from organic channels.
+    </p>
 
-    <h2><i>02</i>The plan</h2>
-    <p class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> the steps you mapped out before building anything.</p>
-    <div class="flow" aria-label="Example flow">
-      <span>Step one</span><em>&rarr;</em>
-      <span>Step two</span><em>&rarr;</em>
-      <span>Decision?</span><em>&rarr;</em>
-      <span class="on">Result</span>
+    <!-- 02 The content workflow -->
+    <h2><i>02</i> Content workflow</h2>
+    <p>Every piece of content followed the same production loop — built for both Google crawlers and AI citation engines.</p>
+    <div class="flow" aria-label="Content production workflow">
+      <span>Keyword + AI query research</span><em>→</em>
+      <span>Topic outline</span><em>→</em>
+      <span>Draft (AI-assisted)</span><em>→</em>
+      <span>Schema markup</span><em>→</em>
+      <span>Publish + distribute</span><em>→</em>
+      <span class="on">Track in GSC + AI tools</span>
     </div>
 
-    <h2><i>03</i>What was built</h2>
-    <div class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> the pieces you delivered.</div>
+    <!-- 03 Campaigns -->
+    <h2><i>03</i> Campaign types</h2>
+    <p>Content was split across four active campaign streams, each targeting a different channel and intent.</p>
+
+    <div class="campaigns">
+      <div class="campaign">
+        <span class="campaign-label seo">SEO Content</span>
+        <h3>Buyer &amp; Seller Guides</h3>
+        <p>Long-form guides targeting transactional real estate keywords in Scottsdale — "how to buy a home in Scottsdale," "best neighborhoods in Scottsdale AZ." Structured with H2/H3 headers and FAQ schema to capture featured snippets and AI Overviews.</p>
+      </div>
+      <div class="campaign">
+        <span class="campaign-label geo">GEO / AEO</span>
+        <h3>AI Citation Content</h3>
+        <p>Short Q&amp;A-format articles structured around the exact phrasing people ask ChatGPT and Perplexity — "who is the best realtor in Scottsdale," "what is the average home price in Scottsdale." Goal: get cited as a source in AI-generated answers.</p>
+      </div>
+      <div class="campaign">
+        <span class="campaign-label social">Social Media</span>
+        <h3>Instagram &amp; Facebook</h3>
+        <p>Weekly content calendar: listing reveals, market update graphics, client spotlights, and branded Reels. Designed in Canva, video clips edited in Premiere and CapCut. Scheduled via Meta Business Suite.</p>
+      </div>
+      <div class="campaign">
+        <span class="campaign-label email">Email Campaigns</span>
+        <h3>Drip &amp; Newsletter</h3>
+        <p>Monthly market update newsletters via ActivePipe and Mailchimp. Drip sequences for new leads with automated follow-up at day 1, 3, 7, and 14. Content repurposed from blog posts to keep production efficient.</p>
+      </div>
+    </div>
+
+    <!-- 04 What was built -->
+    <h2><i>04</i> What was built</h2>
     <ul class="list">
-      <li>Deliverable one</li>
-      <li>Deliverable two</li>
-      <li>Deliverable three</li>
+      <li>Full SEO content calendar — 2 to 4 posts per month, planned 6 weeks ahead</li>
+      <li>FAQ schema library covering the top 30 buyer and seller questions for Scottsdale</li>
+      <li>GEO/AEO article bank targeting AI search queries — structured for citation in ChatGPT, Perplexity, and Google AI Overviews</li>
+      <li>Social content system: branded templates, monthly themes, and a repeatable posting schedule across Instagram and Facebook</li>
+      <li>YouTube strategy with VidIQ keyword research for property tour and neighborhood guide videos</li>
+      <li>Email drip sequence (5 steps) for new buyer leads, built in ActivePipe and Mailchimp</li>
+      <li>Monthly reporting dashboard covering Google Search Console, GA4, and social analytics</li>
     </ul>
 
-    <h2><i>04</i>Results</h2>
-    <div class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> the numbers or the change the client saw afterwards.</div>
+    <!-- 05 Results -->
+    <h2><i>05</i> Results</h2>
+    <p>Sustained over 4.5 years of ongoing content production and optimization.</p>
+    <div class="outcomes">
+      <div class="outcome">
+        <span class="outcome-val">4.5 yrs</span>
+        <span class="outcome-label">Continuous engagement</span>
+      </div>
+      <div class="outcome">
+        <span class="outcome-val">30+</span>
+        <span class="outcome-label">Pages ranked in Google</span>
+      </div>
+      <div class="outcome">
+        <span class="outcome-val">3 AI</span>
+        <span class="outcome-label">Platforms cited on</span>
+      </div>
+    </div>
 
-    <footer>This is a placeholder page shipped with the template. Replace public/placeholders/sample-plan.html with your own document.</footer>
+    <div class="card" style="margin-top:20px">
+      <div class="card-title">Tools used in this workflow</div>
+      <p>Google Search Console · Google Analytics 4 · Yoast SEO · Claude AI · ChatGPT · Canva · Adobe Premiere · CapCut · Meta Business Suite · VidIQ · ActivePipe · Mailchimp · Wix</p>
+    </div>
+
+    <footer>
+      <span>KKRG / REALIV · Scottsdale, AZ</span>
+      <span>Managed by Abian Keith Sibug · byrealiv.com</span>
+    </footer>
+
   </main>
-  <script>
-    // ?doc=N labels the page for the featured-project panels that reuse it.
-    (function () {
-      var n = new URLSearchParams(location.search).get('doc');
-      var names = { '1': 'Featured Project One', '2': 'Featured Project Two', '3': 'Featured Project Three' };
-      if (!n || !names[n]) return;
-      var kind = document.getElementById('doc-kind');
-      var title = document.getElementById('doc-title');
-      if (kind) kind.textContent = 'Placeholder - ' + names[n];
-      if (title) title.textContent = names[n] + ': your page goes here.';
-    })();
-  </script>
 </body>
 </html>
