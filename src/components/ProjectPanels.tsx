@@ -92,9 +92,9 @@ export function PlanPanel() {
 type Build = { id: string; label: string; src: string; path: string; Icon: Icon }
 
 const BUILDS: Build[] = [
-  { id: 'ticketing', label: 'Featured Project One', src: '/placeholders/sample-plan.html?doc=1', path: '/featured-one', Icon: Ticket },
-  { id: 'framework', label: 'Featured Project Two', src: '/placeholders/sample-plan.html?doc=2', path: '/featured-two', Icon: Robot },
-  { id: 'workflow', label: 'Featured Project Three', src: '/placeholders/sample-plan.html?doc=3', path: '/featured-three', Icon: FlowArrow },
+  { id: 'ticketing', label: 'KKRG / REALIV — Content Strategy', src: '/placeholders/sample-plan.html', path: '/content-strategy', Icon: Ticket },
+  { id: 'framework', label: 'Margot European Spa — Social Campaign', src: '/placeholders/margot-social.html', path: '/margot-social', Icon: Robot },
+  { id: 'workflow', label: 'DripIV Therapy — Social Campaign', src: '/placeholders/dripiv-social.html', path: '/dripiv-social', Icon: FlowArrow },
 ]
 
 /** One build, framed, open on arrival. */
