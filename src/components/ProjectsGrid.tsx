@@ -25,6 +25,14 @@ const portfolios: Record<string, { label: string; href: string }[]> = {
     { label: 'AREAA GLA event and design work', href: 'https://drive.google.com/drive/folders/1b8IajyWGp-gJd-WBDQSft65Vczg18e-f' },
   ],
 }
+const workImages: Record<string,string> = {
+  'realiv': 'https://drive.google.com/thumbnail?id=1sTiv0Lf_y88Hd-qqKg73CYPcimUq0jp4&sz=w1000',
+  'kacie-henke': 'https://drive.google.com/thumbnail?id=1njDZNrs-nyVwyotjxOkmnCkRt8D5pdi1&sz=w1000',
+  'nicholas-ryan': 'https://drive.google.com/thumbnail?id=1ZInmpVi9pH7o1AwOBEuEysKDcAZy0cm5&sz=w1000',
+
+  'margot': 'https://drive.google.com/thumbnail?id=1oNiA2X0ulJ9vGWXkCEtsOjm4fIvNTQUJ&sz=w1000',
+  'areaa-gla': 'https://drive.google.com/thumbnail?id=1iJfvBspBvJox_Txs0YY3dyG78kJy5HbU&sz=w1000',
+}
 const categories = ['All', 'Real Estate', 'Wellness', 'Association'] as const
 function category(id: string) {
   if (['realiv', 'kacie-henke', 'nicholas-ryan'].includes(id)) return 'Real Estate'
@@ -51,6 +59,7 @@ export default function ProjectsGrid() {
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,250px),1fr))',gap:14}}>
           {shown.map((p,i) => (
             <button key={p.id} type="button" className="bento__card bento__card--btn" onClick={() => setSelected(p.id)} aria-haspopup="dialog" style={{textAlign:'left',display:'flex',flexDirection:'column',gap:12,padding:22,minHeight:205,cursor:'pointer'}}>
+              {workImages[p.id] && <img src={workImages[p.id]} alt={p.client + ' portfolio work sample'} loading="lazy" style={{width:'100%',height:112,objectFit:'cover',borderRadius:10}} />}
               <span style={{fontSize:12,opacity:.65}}>{String(i+1).padStart(2,'0')} / {category(p.id)}</span>
               <strong style={{fontSize:'clamp(17px,1.5vw,22px)',lineHeight:1.3}}>{p.client}</strong>
               <span style={{fontSize:13,lineHeight:1.55,opacity:.85}}>{p.title}</span>
