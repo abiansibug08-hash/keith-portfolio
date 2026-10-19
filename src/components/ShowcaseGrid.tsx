@@ -32,7 +32,7 @@ export default function ShowcaseGrid() {
             <span className="ktools__vote-ask">Google</span>
           </p>
           <a className="ktools__vote-frame ktools__vote-card" href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">
-            <img src="/placeholders/badge.svg" alt="" width="48" height="48" />
+            <img src="/avatar.png" alt="" width="48" height="48" />
             <span className="ktools__vote-text">
               Google Analytics & Search Console
             </span>
