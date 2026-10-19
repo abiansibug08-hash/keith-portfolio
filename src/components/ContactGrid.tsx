@@ -63,7 +63,7 @@ export default function ContactGrid() {
           Let&apos;s work together.
         </h1>
         <p className="pgrid__lede">
-          Have a project or role in mind? Send me a message and I&apos;ll reply within one business day.
+          Have a project or role in mind? Send me a message, email me, or reach out on WhatsApp.
         </p>
       </header>
 
@@ -132,7 +132,7 @@ export default function ContactGrid() {
               </h2>
               <p className="cgrid__done-body">
                 {status.via === 'webhook'
-                  ? 'It is in my inbox and on my phone. You will hear back within one business day.'
+                  ? 'Your message was submitted. I will follow up as soon as possible.'
                   : 'The message is laid out and addressed. Press send there and you will hear back within one business day.'}
               </p>
               <button type="button" className="cgrid__again" onClick={() => setStatus({ kind: 'idle' })}>
@@ -197,7 +197,7 @@ export default function ContactGrid() {
                     {status.note}
                   </span>
                 ) : (
-                  <span className="cgrid__hint">I reply within one business day.</span>
+                  <span className="cgrid__hint">You can also contact me directly via email or WhatsApp.</span>
                 )}
               </div>
             </form>
