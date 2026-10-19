@@ -61,7 +61,7 @@ export const projects: Project[] = [
     description:
       "Marketing Admin (VA) for a real estate team: WordPress website management, social media content, video production, and Facebook/Google Ads.",
     tags: ["WordPress", "Social Media", "Video", "Facebook Ads", "Google Ads"],
-  },,
+  },
   {
     id: "areaa-gla",
     client: "AREAA GLA",
