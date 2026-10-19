@@ -1,356 +1,82 @@
-import { Fragment, useCallback, useEffect, useRef, useState, type ComponentType, type ReactNode } from 'react'
-import { createPortal } from 'react-dom'
-import { ArrowUpRight, X, Ticket, Robot, FlowArrow, CursorClick } from '@/components/slab'
-import { FlowIcon, PlanIcon, GlobeIcon, SparkIcon, DeviceIcon } from './ProjectIcons'
-import { AutomationsPanel, PlanPanel, TicketingPanel, FrameworkPanel, WorkflowPanel, BarrelPanel, AIWindow, AppsWindow } from './ProjectPanels'
-import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/funnels'
-import { mobileApps } from '@/data/projects'
-import { aiStack, type StackNode } from '@/data/ai-stack'
-import { useIsPhone } from '@/hooks/useMediaQuery'
+import { useState } from 'react'
+import { ArrowUpRight, X } from '@/components/slab'
+import { projects } from '@/data/projects'
 
-/**
- * Projects, as one viewport in Home's bento language: a glass panel of six
- * cards, each previewing its own body of work with a live inner track, each
- * opening the work itself in a near-fullscreen dialog (see ProjectPanels for
- * the first three; the rest are the sections the long page used to stack).
- *
- * The dialog is a portal at z 8000, under the funnel preview (9000) so the
- * barrel's own "open this page" dialog can still stack on top of it.
- */
-type Project = {
-  id: string
-  index: string
-  title: string
-  desc: string
-  Icon: ComponentType<{ size?: number }>
-  eyebrow: string
-  Section: ComponentType
-  span?: 2
-  /** Open Builds style: a small orange kicker above the title. */
-  kicker?: string
-  /** Real marks of what the work was built in; replaces the icon tile. */
-  logos?: string[]
-  Preview: ComponentType
-  /** Phone filter bucket. */
-  cat: Cat
+const portfolios: Record<string, { label: string; href: string }[]> = {
+  'realiv': [
+    { label: 'Visit REALIV website', href: 'https://byrealiv.com' },
+    { label: 'Website management work', href: 'https://drive.google.com/drive/folders/1D_5JwqKADkd6Q3UjXj-WB4PZaoDq0vJ8' },
+    { label: 'Real estate portfolio', href: 'https://drive.google.com/drive/folders/1T2O4UuxM63_e6qGFF2QqZHa8Zu7hiyPx' },
+  ],
+  'kacie-henke': [
+    { label: 'Visit Kacie Henke website', href: 'https://kaciehenke.com' },
+    { label: 'Real estate marketing samples', href: 'https://drive.google.com/drive/folders/1T2O4UuxM63_e6qGFF2QqZHa8Zu7hiyPx' },
+  ],
+  'nicholas-ryan': [
+    { label: 'Real estate creative work', href: 'https://drive.google.com/drive/folders/1T2O4UuxM63_e6qGFF2QqZHa8Zu7hiyPx' },
+  ],
+  'dripiv': [
+    { label: 'DRIPIV work samples', href: 'https://drive.google.com/drive/folders/14vCYWrvnBGJxgQsJ3Z5q_aCoHRqRmG6j' },
+  ],
+  'margot': [
+    { label: 'Margot Spa work samples', href: 'https://drive.google.com/drive/folders/1yMDIFhqPprTsiscA9W4H9s028e4bxn5n' },
+  ],
+  'areaa-gla': [
+    { label: 'AREAA GLA event and design work', href: 'https://drive.google.com/drive/folders/1b8IajyWGp-gJd-WBDQSft65Vczg18e-f' },
+  ],
 }
-
-type Cat = 'work' | 'sites' | 'apps' | 'ai'
-const FILTERS: { key: Cat | 'all'; label: string }[] = [
-  { key: 'all', label: 'All' },
-  { key: 'work', label: 'Work' },
-  { key: 'sites', label: 'Sites' },
-  { key: 'apps', label: 'Apps' },
-  { key: 'ai', label: 'AI' },
-]
-
-/** Example tool marks, from public/icons. Swap for what you build with. */
-const GHL = '/icons/gohighlevel.png'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const CODEX = '/icons/ai/codex.svg'
-const HERMES = '/icons/ai/hermes.svg'
-const PLAY = '/icons/ai/googleplay.svg'
-const CHROME = '/icons/ai/googlechrome.svg'
-const EXPO = '/icons/ai/expo.svg'
-
-const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
-  (f) => `/placeholders/${f}`,
-)
-
-const FUNNEL_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0]].filter(Boolean)
-const thumbSrc = (f: Funnel) => `/${f.dir ?? 'funnels'}/thumbs/${f.file.replace('.html', '.jpeg')}`
-
-const APP_SHOTS = mobileApps.map((a) => a.imageSrc).filter((s): s is string => !!s)
-
-/** The three featured builds: each its own card in the stack, each its own
- *  pop-up. */
-const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Real Estate', title: 'Kevin Kwan / REALIV — Digital Marketing', desc: 'SEO, website rebuilds, social media, email campaigns, and GEO/AEO strategy for a real estate team.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured client', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'work', index: '04', kicker: 'Wellness', title: 'Margot Spa — Social Media', desc: 'Branded social media content and promotional graphics for a luxury European spa, maintaining consistent visual identity across Instagram and Facebook.', Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured client', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'work', index: '05', kicker: 'Health & Wellness', title: 'DRIPIV — Social Media', desc: 'Social media content and branded marketing assets for an IV therapy clinic, growing audience and driving appointment inquiries.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX], eyebrow: 'Featured client', Section: WorkflowPanel, Preview: () => null },
-]
-
-const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
-const AI_LEAVES = leaves(aiStack)
-
-/* ---------- Previews ---------- */
-
-function WorkflowsPreview() {
-  return (
-    <div className="bento__media bento__reel" aria-hidden="true">
-      <div className="bento__reel-track">
-        {[...WF_SHOTS, ...WF_SHOTS].map((src, i) => (
-          <span key={i} className="bento__shot">
-            <img src={src} alt="" loading="lazy" decoding="async" />
-          </span>
-        ))}
-      </div>
-    </div>
-  )
+const categories = ['All', 'Real Estate', 'Wellness', 'Association'] as const
+function category(id: string) {
+  if (['realiv', 'kacie-henke', 'nicholas-ryan'].includes(id)) return 'Real Estate'
+  if (['margot', 'dripiv'].includes(id)) return 'Wellness'
+  return 'Association'
 }
-
-/** A paper mock of the plan document, the way SamplePlan previews it. */
-function PlanPreview() {
-  return (
-    <div className="bento__media bento__doc" aria-hidden="true">
-      <span className="bento__doc-eyebrow">GEO / AEO Strategy</span>
-      <span className="bento__doc-title">AI Search Content Plan</span>
-      <span className="bento__doc-flow">
-        <i>Step</i>
-        <i>Step</i>
-        <i>Step?</i>
-        <i className="is-on">Result</i>
-      </span>
-      <span className="bento__doc-line" />
-      <span className="bento__doc-line bento__doc-line--short" />
-    </div>
-  )
-}
-
-/** The three builds as Open Builds rows: plate, eyebrow, title, arrow. */
-function FunnelsPreview() {
-  return (
-    <div className="bento__media bento__fan" aria-hidden="true">
-      {FUNNEL_SHOTS.map((f, i) => (
-        <span key={f.file} className="bento__photo bento__photo--page" style={{ ['--i' as string]: i }}>
-          <img src={thumbSrc(f)} alt="" loading="lazy" decoding="async" />
-        </span>
-      ))}
-    </div>
-  )
-}
-
-function AIPreview() {
-  const half = Math.ceil(AI_LEAVES.length / 2)
-  const rows = [AI_LEAVES.slice(0, half), AI_LEAVES.slice(half)]
-  return (
-    <div className="bento__media bento__chips" aria-hidden="true">
-      {rows.map((row, r) => (
-        <div key={r} className="bento__chip-row" data-dir={r ? 'right' : 'left'}>
-          <div className="bento__chip-track">
-            {[...row, ...row].map((n, i) => (
-              <span key={`${n.id}-${i}`} className="bento__chip" data-status={n.status}>
-                <n.Icon size={15} weight="duotone" />
-                {n.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function AppsPreview() {
-  return (
-    <div className="bento__media bento__reel bento__reel--row" aria-hidden="true">
-      <div className="bento__reel-track">
-        {[...APP_SHOTS, ...APP_SHOTS].map((src, i) => (
-          <span key={i} className="bento__shot bento__shot--app">
-            <img src={src} alt="" loading="lazy" decoding="async" />
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'SEO & Website Work', desc: 'Technical SEO, Wix rebuilds, Google Search Console monitoring, and on-page optimization across real estate and service brands.', Icon: FlowIcon, logos: [GHL], eyebrow: 'SEO & Websites', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
-  { id: 'plan', cat: 'work', index: '02', title: 'Content Strategy', desc: 'GEO/AEO content structured for AI citation — getting clients found in ChatGPT, Perplexity, and Google AI Overviews.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Content & GEO/AEO', Section: PlanPanel, Preview: PlanPreview },
-  { id: 'funnels', cat: 'sites', index: '06', title: 'Landing Pages & Sites', desc: 'Conversion-focused landing pages and real estate listing sites built on Wix, WordPress, and Squarespace.', Icon: GlobeIcon, logos: [GHL], eyebrow: 'Pages and sites', Section: BarrelPanel, Preview: FunnelsPreview },
-  { id: 'ai', cat: 'ai', index: '07', title: 'Marketing Toolkit', desc: '30+ tools spanning SEO, social media, email automation, design, and AI search — all actively used for client campaigns.', Icon: SparkIcon, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Tools & systems', Section: AIWindow, Preview: AIPreview },
-  { id: 'apps', cat: 'apps', index: '08', title: 'Design & Creative Work', desc: 'Branded social graphics, video edits, email templates, and print materials produced in Canva, Photoshop, and Premiere.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Design & creative', Section: AppsWindow, span: 2, Preview: AppsPreview },
-]
-
-/** The icon tile, or the real marks stacked horizontally in its place. */
-function Marks({ p, size = 22 }: { p: Project; size?: number }) {
-  if (!p.logos?.length) {
-    return (
-      <span className="bento__icon">
-        <p.Icon size={size} />
-      </span>
-    )
-  }
-  return (
-    <span className="bento__logos" aria-hidden="true">
-      {p.logos.map((src) => (
-        <span key={src} className="bento__logo">
-          <img src={src} alt="" width={22} height={22} decoding="async" />
-        </span>
-      ))}
-    </span>
-  )
-}
-
-/* ---------- Dialog ----------
-   A backdrop, a close button in the corner, and the work. No panel, no
-   header: each Section brings its own window (or, for the strip, none). */
-function ProjectModal({ project, onClose, children }: { project: Project; onClose: () => void; children: ReactNode }) {
-  const closeRef = useRef<HTMLButtonElement>(null)
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-    }
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    requestAnimationFrame(() => closeRef.current?.focus())
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
-
-  return createPortal(
-    <div
-      className="pmodal"
-      role="dialog"
-      aria-modal="true"
-      aria-label={project.title}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose()
-      }}
-    >
-      <button ref={closeRef} type="button" className="pmodal__close" onClick={onClose} aria-label="Close">
-        <X size={18} weight="bold" />
-      </button>
-      <div className="pmodal__stage">{children}</div>
-    </div>,
-    document.body,
-  )
-}
-
-/* ---------- The page ---------- */
 
 export default function ProjectsGrid() {
-  const [open, setOpen] = useState<Project | null>(null)
-  const phone = useIsPhone()
-  const [cat, setCat] = useState<Cat | 'all'>('all')
-  const keep = (p: Project) => !phone || cat === 'all' || p.cat === cat
-  const projects = PROJECTS.filter(keep)
-  const builds = BUILDS.filter(keep)
-  const triggerRef = useRef<HTMLElement | null>(null)
-
-  const show = useCallback((p: Project, el: HTMLElement) => {
-    triggerRef.current = el
-    setOpen(p)
-  }, [])
-  const close = useCallback(() => {
-    setOpen(null)
-    requestAnimationFrame(() => triggerRef.current?.focus())
-  }, [])
-
-  const stack = builds.length > 0 ? (
-    <div className="bento__stack">
-
-        {builds.map((b) => (
-
-          <button
-
-            key={b.id}
-
-            type="button"
-
-            className="bento__card bento__card--btn bento__card--build"
-
-            onClick={(e) => show(b, e.currentTarget)}
-
-            aria-haspopup="dialog"
-
-          >
-
-            <span className="bento__build-plate">
-
-              {b.logos?.length ? <img src={b.logos[0]} alt="" width={22} height={22} /> : <b.Icon />}
-
-            </span>
-
-            <span className="bento__build-text">
-
-              <span className="bento__kicker">{b.kicker}</span>
-
-              <span className="bento__build-title">{b.title}</span>
-
-              <span className="bento__build-desc">{b.desc}</span>
-
-            </span>
-
-            <span className="bento__build-arrow">
-
-              <ArrowUpRight size={13} weight="bold" aria-hidden="true" />
-
-            </span>
-
-          </button>
-
-        ))}
-
-      </div>
-  ) : null
-
+  const [filter, setFilter] = useState<(typeof categories)[number]>('All')
+  const [selected, setSelected] = useState<string | null>(null)
+  const current = projects.find(p => p.id === selected)
+  const shown = projects.filter(p => filter === 'All' || category(p.id) === filter)
   return (
     <section className="pgrid" aria-labelledby="projects-title">
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">Projects</span>
-        <h1 className="pgrid__title" id="projects-title">
-          Real brands. Real search results.
-        </h1>
-        <p className="pgrid__lede">Six teams and brands supported across SEO, social media, website management, automations, design, and event marketing. Explore the work below.</p>
+        <span className="pgrid__eyebrow">Selected client work</span>
+        <h1 className="pgrid__title" id="projects-title">Real clients. Real work.</h1>
+        <p className="pgrid__lede">Marketing, SEO, websites, content and operations for six real estate, wellness and professional organizations. Explore verified work samples from my portfolio.</p>
       </header>
-
-      {phone && (
-        <div className="pfilter" role="group" aria-label="Filter projects">
-          {FILTERS.map((f) => (
-            <button
-              key={f.key}
-              type="button"
-              className="pfilter__btn"
-              aria-pressed={cat === f.key}
-              onClick={() => setCat(f.key)}
-            >
-              {f.label}
+      <div className="home__glass pgrid__glass" style={{overflowY:'auto',padding:'clamp(16px,2.5vw,30px)'}}>
+        <div role="group" aria-label="Filter clients" style={{display:'flex',gap:8,flexWrap:'wrap',marginBottom:20}}>
+          {categories.map(c => <button key={c} type="button" onClick={() => setFilter(c)} aria-pressed={filter===c} style={{border:'1px solid currentColor',borderRadius:30,padding:'7px 14px',opacity:filter===c?1:.65,background:'transparent',color:'inherit',cursor:'pointer'}}>{c}</button>)}
+        </div>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,250px),1fr))',gap:14}}>
+          {shown.map((p,i) => (
+            <button key={p.id} type="button" className="bento__card bento__card--btn" onClick={() => setSelected(p.id)} aria-haspopup="dialog" style={{textAlign:'left',display:'flex',flexDirection:'column',gap:12,padding:22,minHeight:205,cursor:'pointer'}}>
+              <span style={{fontSize:12,opacity:.65}}>{String(i+1).padStart(2,'0')} / {category(p.id)}</span>
+              <strong style={{fontSize:'clamp(17px,1.5vw,22px)',lineHeight:1.3}}>{p.client}</strong>
+              <span style={{fontSize:13,lineHeight:1.55,opacity:.85}}>{p.title}</span>
+              <span style={{display:'flex',gap:6,flexWrap:'wrap'}}>{p.tags.slice(0,3).map(t=><span key={t} style={{border:'1px solid currentColor',borderRadius:12,padding:'3px 7px',fontSize:10,opacity:.8}}>{t}</span>)}</span>
+              <span style={{marginTop:'auto',fontSize:12}}>View case study <ArrowUpRight size={14} aria-hidden="true"/></span>
             </button>
           ))}
         </div>
-      )}
-
-      <div className="home__glass pgrid__glass">
-        {/* Hung on the sheet's top edge so it reads as a tag on the container,
-            not a seventh card. aria-hidden: the lede already says it. */}
-        <span className="pgrid__hint" aria-hidden="true">
-          <CursorClick size={14} weight="duotone" />
-          Click a card to open it
-        </span>
-        <div className="bento bento--projects">
-          {projects.map((p) => (
-            <Fragment key={p.id}>
-            <button
-              type="button"
-              className={`bento__card bento__card--btn${p.span === 2 ? ' bento__card--wide' : ''}`}
-              data-id={p.id}
-              onClick={(e) => show(p, e.currentTarget)}
-              aria-haspopup="dialog"
-            >
-              <span className="bento__head">
-                <Marks p={p} />
-                <span className="bento__title">{p.title}</span>
-                <span className="bento__desc">{p.desc}</span>
-                <ArrowUpRight size={15} weight="bold" aria-hidden="true" className="bento__arrow" />
-              </span>
-              <p.Preview />
-            </button>
-            {p.id === 'plan' && stack}
-            </Fragment>
-          ))}
-          {!projects.some((p) => p.id === 'plan') && stack}
-        </div>
+        <a href="https://drive.google.com/drive/folders/1Uqe5cmGDWJtiVu0J1Z2oJjigId3Hpmd9" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:6,marginTop:20,fontWeight:600}}>Explore the full creative portfolio <ArrowUpRight size={16}/></a>
       </div>
-
-      {open && (
-        <ProjectModal project={open} onClose={close}>
-          <open.Section />
-        </ProjectModal>
+      {current && (
+        <div className="pmodal" role="dialog" aria-modal="true" aria-label={current.client} onClick={e=>{if(e.target===e.currentTarget)setSelected(null)}}>
+          <button type="button" className="pmodal__close" aria-label="Close case study" onClick={()=>setSelected(null)}><X size={18}/></button>
+          <div className="pmodal__stage" style={{display:'flex',alignItems:'center',justifyContent:'center',padding:24}}>
+            <article style={{background:'var(--cream)',color:'var(--navy)',borderRadius:22,padding:'clamp(24px,4vw,48px)',width:'min(100%,720px)',maxHeight:'85vh',overflowY:'auto'}}>
+              <span style={{fontSize:12,opacity:.65}}>{category(current.id)} / Client work</span>
+              <h2 style={{fontSize:'clamp(24px,3vw,40px)',lineHeight:1.15,margin:'14px 0'}}>{current.client}</h2>
+              <h3 style={{fontSize:18,marginBottom:14}}>{current.title}</h3>
+              <p style={{lineHeight:1.75,marginBottom:18}}>{current.description}</p>
+              <div style={{display:'flex',gap:8,flexWrap:'wrap',marginBottom:24}}>{current.tags.map(t=><span key={t} style={{border:'1px solid currentColor',borderRadius:20,padding:'5px 10px',fontSize:12}}>{t}</span>)}</div>
+              <h3 style={{fontSize:16,marginBottom:12}}>See the work</h3>
+              <div style={{display:'grid',gap:10}}>{(portfolios[current.id]||[]).map(l=><a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" style={{display:'flex',justifyContent:'space-between',gap:10,padding:'12px 16px',border:'1px solid currentColor',borderRadius:12}}>{l.label}<ArrowUpRight size={18}/></a>)}</div>
+              <p style={{fontSize:12,opacity:.65,marginTop:22}}>Projects shown are examples of work supported or produced in client marketing roles, not claims of business ownership.</p>
+            </article>
+          </div>
+        </div>
       )}
     </section>
   )
