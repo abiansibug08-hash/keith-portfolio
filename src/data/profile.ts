@@ -25,7 +25,7 @@ export const profile = {
   socials: [
     {
       label: "LinkedIn",
-      href: "https://linkedin.com/in/abian-keith-sibug-27ba2419a",
+      href: "https://www.linkedin.com/in/abian-keith-sibug-27ba2419",
       iconPath: "/icons/ai/linkedin.svg",
     },
     {
