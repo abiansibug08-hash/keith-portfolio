@@ -47,11 +47,12 @@ const CLIENTS = [
   { name: 'Margot European Spa', role: 'Social Media & Design', work: 'Social Media · Graphic Design · Brand', logo: undefined },
   { name: 'DripIV Therapy', role: 'Content & Social', work: 'Social Media · Video · Content', logo: undefined },
   { name: 'Kacie Henke Real Estate', role: 'Operations Admin — 1.5 years', work: 'CRM · SEO · Social · Email · Design', logo: undefined },
-  { name: 'Nicholas Ryan Team', role: 'Marketing Admin (VA) — 3 years', work: 'WordPress · Social · Video · Ads', logo: undefined },
+  { name: 'Nicholas Ryan Team', role: 'Marketing Admin (VA) — 3 years', work: 'Website · Social Media', logo: undefined },
+  { name: 'AREAA GLA', role: 'Marketing Support', work: 'Social Media · Brochures · Events', logo: undefined },
 ]
 
 // Three photos of you, fanned. Small copies are fine - the fan shows them under 100px.
-const PHOTOS = [profile.avatarSrc, '/avatar.svg?2', '/avatar.svg?3']
+const PHOTOS = [profile.avatarSrc, profile.avatarSrc, profile.avatarSrc]
 
 /** The AI systems as a flat list: every leaf of the Projects tree, in order. */
 const leaves = (n: StackNode): StackNode[] =>
@@ -135,14 +136,14 @@ export default function HomeBento() {
 
       {/* Credentials: the badge that matters, on its plate. */}
       <Link to="/about" className="bento__card bento__card--creds">
-        <CardHead Icon={Medal} title="Credentials" desc="Google-certified with 8+ years of hands-on results." />
+        <CardHead Icon={Medal} title="Credentials" desc="8+ years of hands-on digital marketing and operations experience." />
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
             <img src="/placeholders/badge.svg" alt="" width={72} height={72} />
           </span>
           <span className="bento__badge-tag">
             <SealCheck size={14} weight="fill" />
-            Google Analytics Certified
+            SEO & AI Search Specialist
           </span>
         </div>
       </Link>
@@ -169,7 +170,7 @@ export default function HomeBento() {
       </Link>
 
       {/* Testimonials: client cards drifting up a clipped column. */}
-      <Link to="/testimonials" className="bento__card bento__card--quotes">
+      <Link to="/projects" className="bento__card bento__card--quotes">
         <CardHead Icon={Quotes} title="Clients" desc="Long-term partnerships with real estate and wellness brands." />
         <div className="bento__media bento__reviews" aria-hidden="true">
           <div className="bento__reviews-track">
