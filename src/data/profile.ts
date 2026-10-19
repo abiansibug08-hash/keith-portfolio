@@ -14,7 +14,7 @@ export const profile = {
   portfolio: "https://abian-portfolio.netlify.app",
   avatarSrc: "/avatar.png",
   verifiedLabel: "Verified professional",
-  bio: "Digital marketing professional with 8+ years helping real estate brands dominate search - on Google and on AI platforms like ChatGPT and Perplexity.",
+  bio: "Digital marketing professional with 8+ years supporting real estate and service brands with SEO, marketing and digital operations - on Google and on AI platforms like ChatGPT and Perplexity.",
   displayName: {
     line1: "Rank first.",
     line2: "Grow everywhere.",
@@ -36,7 +36,7 @@ export const profile = {
   ],
   stats: [
     { label: "Years Experience", value: "8+", Icon: Calendar },
-    { label: "Brands Managed", value: "5+", Icon: Buildings },
+    { label: "Brands Managed", value: "6+", Icon: Buildings },
     { label: "Tools Mastered", value: "30+", Icon: Wrench },
   ],
 };
