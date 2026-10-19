@@ -39,11 +39,11 @@ const OFFERS = [
 ] as const
 
 const CLIENTS = [
-  { name: 'KKRG / REALIV', role: 'Marketing Admin — 4.5 years', work: 'SEO · Social · Website · Email · Design', logo: undefined },
+  { name: 'Kevin Kwan / REALIV', role: 'Marketing Admin · Dec 2021–Jan 2025', work: 'SEO · Social · Website · Email · Design', logo: undefined },
   { name: 'Margot European Spa', role: 'Social Media & Design', work: 'Social Media · Graphic Design · Brand', logo: undefined },
   { name: 'DripIV Therapy', role: 'Content & Social', work: 'Social Media · Video · Content', logo: undefined },
-  { name: 'Kacie Henke Real Estate', role: 'Operations Admin — 1.5 years', work: 'CRM · SEO · Social · Email · Design', logo: undefined },
-  { name: 'Nicholas Ryan Team', role: 'Marketing Admin (VA) — 3 years', work: 'Website · Social Media', logo: undefined },
+  { name: 'Kacie Henke Real Estate', role: 'Operations Admin · Feb 2025–Jun 2026', work: 'CRM · SEO · Social · Email · Design', logo: undefined },
+  { name: 'Nicholas Ryan Team', role: 'Marketing Admin (VA) · Dec 2018–Dec 2021', work: 'Website · Social Media', logo: undefined },
   { name: 'AREAA GLA', role: 'Marketing Support', work: 'Social Media · Brochures · Events', logo: undefined },
 ]
 
@@ -167,7 +167,7 @@ export default function HomeBento() {
 
       {/* Testimonials: client cards drifting up a clipped column. */}
       <Link to="/projects" className="bento__card bento__card--quotes">
-        <CardHead Icon={Quotes} title="Clients" desc="Long-term partnerships with real estate and wellness brands." />
+        <CardHead Icon={Quotes} title="Clients" desc="Six brands supported across real estate, wellness and events." />
         <div className="bento__media bento__reviews" aria-hidden="true">
           <div className="bento__reviews-track">
             {[...CLIENTS, ...CLIENTS].map((c, i) => (
