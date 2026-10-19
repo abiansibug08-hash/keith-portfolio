@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SealCheck, CaretRight, Play, Stack } from '@/components/slab'
+import { SealCheck, Stack } from '@/components/slab'
 import { profile } from '@/data/profile'
 import QuickMenu from './QuickMenu'
 
@@ -49,7 +49,7 @@ export function HomeStats() {
 const TILES = [
   { n: '01', label: 'Projects', to: '/projects', title: 'Real clients. Real results.', desc: 'REALIV, Margot Spa, DripIV Therapy.', img: '/placeholders/project-1.jpg' },
   { n: '02', label: 'Services', to: '/services', title: 'Everything your brand needs to get found.', desc: 'SEO, AI search, social, websites, email, design.', Icon: Stack },
-  { n: '03', label: 'Clients', to: '/testimonials', title: 'Brands I have grown.', desc: 'Long-term real estate and wellness clients.', img: '/placeholders/testimonial-1.jpg' },
+  { n: '03', label: 'Clients', to: '/projects', title: 'Six brands supported.', desc: 'Real estate, wellness, and professional organizations.', img: profile.avatarSrc },
   { n: '04', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: '8+ years in SEO and digital marketing.', img: profile.avatarSrc },
 ] as const
 
@@ -78,26 +78,6 @@ export function HomeExplore() {
         ))}
       </ul>
 
-      {/* A header that links carries its chevron on the title itself. */}
-      <div className="hsec">
-        <h2 className="hsec__title">
-          <Link to="/testimonials" className="hsec__link">
-            What clients say
-            <CaretRight size={16} weight="bold" aria-hidden="true" />
-          </Link>
-        </h2>
-      </div>
-      <Link to="/testimonials" className="hproof" aria-label="Client work - 4.5 years managing SEO and digital marketing for KKRG / REALIV.">
-        <span className="hproof__stage">
-          <img src="/placeholders/testimonial-1.jpg" alt="" loading="lazy" />
-          <span className="hproof__play" aria-hidden="true"><Play size={20} weight="fill" /></span>
-          <span className="hproof__dur" aria-hidden="true">4.5 yrs</span>
-        </span>
-        <span className="hproof__copy">
-          <span className="hproof__title">SEO, website, social, email, and design for a Scottsdale real estate team.</span>
-          <span className="hproof__meta">KKRG / REALIV - Marketing Admin</span>
-        </span>
-      </Link>
     </>
   )
 }
