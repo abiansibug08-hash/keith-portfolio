@@ -60,18 +60,14 @@ const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.
 const FUNNEL_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0]].filter(Boolean)
 const thumbSrc = (f: Funnel) => `/${f.dir ?? 'funnels'}/thumbs/${f.file.replace('.html', '.jpeg')}`
 
-const APP_SHOTS = [
-  ...mobileApps.map((a) => a.imageSrc).filter((s): s is string => !!s),
-  '/placeholders/extension-1.jpg',
-  '/placeholders/extension-2.jpg',
-]
+const APP_SHOTS = mobileApps.map((a) => a.imageSrc).filter((s): s is string => !!s)
 
 /** The three featured builds: each its own card in the stack, each its own
  *  pop-up. */
 const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Real Estate', title: 'KKRG / REALIV — Full-Service Marketing', desc: 'SEO, website rebuilds, social media, email campaigns, and GEO/AEO strategy for a California real estate team over 4.5 years.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured client', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'work', index: '04', kicker: 'Wellness', title: 'Margot European Spa — Brand & Social', desc: 'Branded social media content and promotional graphics for a luxury European spa, maintaining consistent visual identity across Instagram and Facebook.', Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured client', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'work', index: '05', kicker: 'Health & Wellness', title: 'DripIV Therapy — Social & Content', desc: 'Social media content and branded marketing assets for an IV therapy clinic, growing audience and driving appointment inquiries.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX], eyebrow: 'Featured client', Section: WorkflowPanel, Preview: () => null },
+  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Real Estate', title: 'Kevin Kwan / REALIV — Digital Marketing', desc: 'SEO, website rebuilds, social media, email campaigns, and GEO/AEO strategy for a real estate team.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured client', Section: TicketingPanel, Preview: () => null },
+  { id: 'framework', cat: 'work', index: '04', kicker: 'Wellness', title: 'Margot Spa — Social Media', desc: 'Branded social media content and promotional graphics for a luxury European spa, maintaining consistent visual identity across Instagram and Facebook.', Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured client', Section: FrameworkPanel, Preview: () => null },
+  { id: 'workflow', cat: 'work', index: '05', kicker: 'Health & Wellness', title: 'DRIPIV — Social Media', desc: 'Social media content and branded marketing assets for an IV therapy clinic, growing audience and driving appointment inquiries.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX], eyebrow: 'Featured client', Section: WorkflowPanel, Preview: () => null },
 ]
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
@@ -300,7 +296,7 @@ export default function ProjectsGrid() {
         <h1 className="pgrid__title" id="projects-title">
           Real brands. Real search results.
         </h1>
-        <p className="pgrid__lede">Three brands I have grown from the ground up — SEO, social, websites, and more. Open a card to see the work.</p>
+        <p className="pgrid__lede">Six teams and brands supported across SEO, social media, website management, automations, design, and event marketing. Explore the work below.</p>
       </header>
 
       {phone && (
