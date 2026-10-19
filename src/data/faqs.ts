@@ -10,11 +10,11 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "What types of businesses do you work with?",
-    a: "Most of my experience is with real estate teams and service-based businesses in the U.S. market. I've worked with realtors (KKRG/REALIV and Kacie Henke Real Estate), spa and wellness brands (Margot European Spa), and IV therapy clinics (DripIV Therapy) - handling everything from CRM management and website SEO to social media, email automations, and design.",
+    a: "Most of my experience is with real estate teams and service-based businesses in the U.S. market. I've supported real estate clients (REALIV, Kacie Henke and Nicholas Ryan Team), wellness brands (Margot Spa and DRIPIV), and AREAA GLA - handling everything from CRM management and website SEO to social media, email automations, and design.",
   },
   {
     q: "Do you work full-time or on a retainer?",
-    a: "Both. I'm open to full-time remote roles, part-time contracts, and monthly retainers depending on the scope of work. Most of my long-term clients have been on a retainer arrangement that covers ongoing SEO, website maintenance, content, and reporting.",
+    a: "Both. I'm open to full-time remote roles, part-time contracts, and monthly retainers depending on the scope of work. My previous roles have included ongoing marketing operations, SEO, website maintenance, content and reporting. We can discuss a scope that fits your needs.",
   },
   {
     q: "What tools and platforms are you proficient in?",
@@ -22,6 +22,6 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "How quickly can you start?",
-    a: "I'm available to start immediately. I'm based in the Philippines (UTC+8), which means I naturally overlap with U.S. business hours during their morning - and I'm flexible on schedule adjustments to fit your team's timezone.",
+    a: "Please contact me to discuss current availability. I'm based in the Philippines (UTC+8), which means I naturally overlap with U.S. business hours during their morning - and I'm flexible on schedule adjustments to fit your team's timezone.",
   },
 ];
