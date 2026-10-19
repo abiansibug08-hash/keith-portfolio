@@ -47,7 +47,7 @@ export function HomeStats() {
 }
 
 const TILES = [
-  { n: '01', label: 'Projects', to: '/projects', title: 'Real clients. Real results.', desc: 'REALIV, Margot Spa, DripIV Therapy.', img: '/placeholders/project-1.jpg' },
+  { n: '01', label: 'Projects', to: '/projects', title: 'Real clients. Real results.', desc: 'REALIV, Margot Spa, DripIV Therapy.', img: profile.avatarSrc },
   { n: '02', label: 'Services', to: '/services', title: 'Everything your brand needs to get found.', desc: 'SEO, AI search, social, websites, email, design.', Icon: Stack },
   { n: '03', label: 'Clients', to: '/projects', title: 'Six brands supported.', desc: 'Real estate, wellness, and professional organizations.', img: profile.avatarSrc },
   { n: '04', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: '8+ years in SEO and digital marketing.', img: profile.avatarSrc },
