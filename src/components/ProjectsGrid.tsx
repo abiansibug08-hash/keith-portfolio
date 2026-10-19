@@ -26,9 +26,6 @@ const portfolios: Record<string, { label: string; href: string }[]> = {
   ],
 }
 const workImages: Record<string,string> = {
-  'realiv': 'https://drive.google.com/thumbnail?id=1sTiv0Lf_y88Hd-qqKg73CYPcimUq0jp4&sz=w1000',
-  'kacie-henke': 'https://drive.google.com/thumbnail?id=1njDZNrs-nyVwyotjxOkmnCkRt8D5pdi1&sz=w1000',
-  'nicholas-ryan': 'https://drive.google.com/thumbnail?id=1ZInmpVi9pH7o1AwOBEuEysKDcAZy0cm5&sz=w1000',
 
   'margot': 'https://drive.google.com/thumbnail?id=1oNiA2X0ulJ9vGWXkCEtsOjm4fIvNTQUJ&sz=w1000',
   'areaa-gla': 'https://drive.google.com/thumbnail?id=1iJfvBspBvJox_Txs0YY3dyG78kJy5HbU&sz=w1000',
