@@ -26,6 +26,7 @@ const portfolios: Record<string, { label: string; href: string }[]> = {
   ],
 }
 const workImages: Record<string,string> = {
+  'dripiv': 'https://drive.google.com/thumbnail?id=1Fn4rwPTqhqTtwt61N0-fOIxjnHxgdPsS&sz=w1000',
 
   'margot': 'https://drive.google.com/thumbnail?id=1oNiA2X0ulJ9vGWXkCEtsOjm4fIvNTQUJ&sz=w1000',
   'areaa-gla': 'https://drive.google.com/thumbnail?id=1iJfvBspBvJox_Txs0YY3dyG78kJy5HbU&sz=w1000',
