@@ -4,9 +4,9 @@ import { ArrowUpRight, MapPin } from '@/components/slab'
 const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Claude' }
 const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Zapier' }
 const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Analytics' }
-const SLACK = { src: '/icons/ai/slack-color.svg', name: 'Canva' }
-const GITHUB = { src: '/icons/ai/github.svg', name: 'VidIQ' }
-const CLOUDFLARE = { src: '/icons/ai/cloudflare.svg', name: 'Meta Business' }
+const SLACK = { src: '/icons/ai/canva.svg', name: 'Canva' }
+const GITHUB = { src: '/icons/ai/wordpress.svg', name: 'WordPress' }
+const CLOUDFLARE = { src: '/icons/ai/meta.svg', name: 'Meta Business' }
 
 type Capability = {
   index: string
@@ -51,15 +51,15 @@ export default function AboutGrid() {
           Hi, I&apos;m Keith.
         </h1>
         <p className="pgrid__lede">
-          SEO specialist helping real estate brands rank on Google and get cited by AI.
+          SEO and AI search specialist with 8+ years supporting US real estate teams across marketing, websites, CRM and operations.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            I help businesses show up where their clients are searching - on Google, on ChatGPT, on Perplexity.
-            <span> 8 years of making that happen for real estate teams.</span>
+            I support digital visibility through SEO, website management, content, social media and marketing operations.
+            <span> 8+ years working with US-based real estate teams.</span>
           </p>
 
           <p className="agrid__note">
@@ -67,11 +67,11 @@ export default function AboutGrid() {
             <a className="agrid__link" href="https://www.kaciehenke.com" target="_blank" rel="noopener noreferrer">
               Kacie Henke Real Estate
             </a>
-            {' '}— managing CRM, website SEO, email automations, and social content. Before that, I spent 4.5 years as Marketing Admin at{' '}
+            {' '}— managing CRM, website SEO, email automations, and social content. Before that, from December 2021 to January 2025, I worked as Marketing Admin at{' '}
             <a className="agrid__link" href="https://byrealiv.com" target="_blank" rel="noopener noreferrer">
               KKRG / REALIV
             </a>
-            {' '}building their full digital presence from the ground up.
+            {' '}supporting SEO, AI search, websites, email and social media. Previously, I supported the Nicholas Ryan Team from December 2018 to December 2021.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -99,7 +99,7 @@ export default function AboutGrid() {
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/placeholders/badge.svg" alt="" loading="lazy" decoding="async" />
+                <img src="/avatar.png" alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">8+ Years Experience</span>
@@ -117,9 +117,9 @@ export default function AboutGrid() {
               </span>
             </span>
 
-            <a className="agrid__cell agrid__cell--wide" href="https://linkedin.com/in/abian-keith-sibug-27ba2419a" target="_blank" rel="noopener noreferrer">
+            <a className="agrid__cell agrid__cell--wide" href="https://www.linkedin.com/in/abian-keith-sibug-27ba2419" target="_blank" rel="noopener noreferrer">
               <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/placeholders/logo.svg" alt="" loading="lazy" decoding="async" />
+                <img src="/icons/ai/linkedin.svg" alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">LinkedIn Profile</span>
