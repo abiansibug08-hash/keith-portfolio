@@ -15,7 +15,6 @@ import {
   AppWindow,
   SealCheck,
 } from '@/components/slab'
-import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/funnels'
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
 
@@ -29,10 +28,7 @@ import { profile } from '@/data/profile'
  * height and Home stays a single viewport.
  */
 
-const thumbSrc = (f: Funnel) =>
-  `/home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
-
-const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
+const PROJECT_SHOTS = [profile.avatarSrc, profile.avatarSrc, profile.avatarSrc, profile.avatarSrc]
 
 const OFFERS = [
   { Icon: FunnelSimple, title: 'SEO & AI Search', note: 'Rank on Google and get cited by ChatGPT and Perplexity.' },
@@ -95,7 +91,7 @@ export default function HomeBento() {
           <div className="bento__reel-track">
             {[...PROJECT_SHOTS, ...PROJECT_SHOTS].map((f, i) => (
               <span key={i} className="bento__shot">
-                <img src={thumbSrc(f)} alt="" loading="lazy" decoding="async" />
+                <img src={f} alt="" loading="lazy" decoding="async" />
               </span>
             ))}
           </div>
@@ -139,7 +135,7 @@ export default function HomeBento() {
         <CardHead Icon={Medal} title="Credentials" desc="8+ years of hands-on digital marketing and operations experience." />
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
-            <img src="/placeholders/badge.svg" alt="" width={72} height={72} />
+            <img src={profile.avatarSrc} alt="" width={72} height={72} />
           </span>
           <span className="bento__badge-tag">
             <SealCheck size={14} weight="fill" />
