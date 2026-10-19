@@ -21,55 +21,50 @@ export interface AppProject {
 
 export const projects: Project[] = [
   {
-    id: "realiv",
-    client: "Kevin Kwan — REALIV",
-    title: "Real Estate Brand — SEO, Website & AI Search",
-    description:
-      "Full-service digital presence for a Scottsdale real estate team including social media management, marketing automations, website management and SEO.",
-    tags: ["SEO", "GEO/AEO", "Wix", "Social Media", "Email", "Video", "Design"],
-    url: "https://byrealiv.com",
+    id: 'realiv',
+    client: 'Kevin Kwan — REALIV',
+    title: 'SEO, AI Search, Website & Marketing Operations',
+    description: 'Marketing Admin, SEO, Website & AI Search (December 2021–January 2025). Supported website and landing page management, keyword research, technical and on-page SEO, GEO/AEO strategy, social media, email campaigns, video editing and marketing automation.',
+    tags: ['SEO', 'GEO/AEO', 'Websites', 'Social Media', 'Email', 'Automation'],
+    url: 'https://byrealiv.com',
   },
   {
-    id: "margot",
-    client: "Margot Spa",
-    title: "Spa & Wellness — Social Media & Brand Design",
-    description:
-      "Branded social media content and promotional graphics for a luxury European spa, maintaining consistent visual identity across Instagram and Facebook.",
-    tags: ["Social Media", "Graphic Design", "Brand", "Content"],
+    id: 'kacie-henke',
+    client: 'Kacie Henke — Modern Life Real Estate',
+    title: 'Marketing Operations, CRM, SEO & Social Media',
+    description: 'Operations Admin (February 2025–June 2026). Managed Follow Up Boss CRM workflows, website SEO and updates, social media, email marketing, listing collateral, property video content, YouTube SEO, SOPs and automations.',
+    tags: ['Follow Up Boss', 'SEO', 'Social Media', 'Email', 'Automation'],
+    url: 'https://kaciehenke.com',
   },
   {
-    id: "dripiv",
-    client: "DRIPIV",
-    title: "IV Therapy Clinic — Social Media & Content",
-    description:
-      "Social media content and branded marketing assets for an IV therapy clinic, growing audience and driving appointment inquiries.",
-    tags: ["Social Media", "Graphic Design", "Content", "Video"],
+    id: 'nicholas-ryan',
+    client: 'Nick Rendleman — Nicholas Ryan Team Real Estate',
+    title: 'Social Media & Website Management',
+    description: 'Marketing Admin (Virtual Assistant), December 2018–December 2021. Managed WordPress website and landing page updates, social content and scheduling, marketing graphics, listing videos and digital advertising support.',
+    tags: ['WordPress', 'Social Media', 'Graphic Design', 'Video'],
   },
   {
-    id: "kacie-henke",
-    client: "Kacie Henke — Modern Life Real Estate",
-    title: "Real Estate Brand — CRM, Operations & Marketing",
-    description:
-      "Operations Admin and digital marketing manager for a Phoenix-area real estate agent: CRM management in Follow Up Boss, website SEO, social media, email automations, and branded content.",
-    tags: ["CRM", "SEO", "Social Media", "Email", "Design", "Follow Up Boss"],
-    url: "https://www.kaciehenke.com",
+    id: 'dripiv',
+    client: 'DRIPIV',
+    title: 'Social Media Management',
+    description: 'Created and managed social media content for DRIPIV, with creative work samples available in the linked portfolio folder.',
+    tags: ['Social Media', 'Content'],
   },
   {
-    id: "nicholas-ryan",
-    client: "Nick Rendleman — Nicholas Ryan Team Real Estate",
-    title: "Real Estate Team — Social Media & Digital Marketing",
-    description:
-      "Marketing Admin (VA) for a real estate team: WordPress website management, social media content, video production, and Facebook/Google Ads.",
-    tags: ["WordPress", "Social Media", "Video", "Facebook Ads", "Google Ads"],
+    id: 'margot',
+    client: 'Margot Spa',
+    title: 'Social Media Management',
+    description: 'Created social media content for Margot Spa, including reel and magazine-cover work represented in the linked portfolio.',
+    tags: ['Social Media', 'Content', 'Design'],
   },
   {
-    id: "areaa-gla",
-    client: "AREAA GLA",
-    title: "Professional Association — Social Media, Brochures & Events",
-    description: "Supported AREAA Greater Los Angeles with social media management, brochure creation and event marketing materials.",
-    tags: ["Social Media", "Brochures", "Event Marketing", "Design"],
-  }
-];
+    id: 'areaa-gla',
+    client: 'AREAA GLA',
+    title: 'Social Media, Brochures & Event Marketing',
+    description: 'Supported social media and event marketing collateral for AREAA Greater Los Angeles, including golf tournament, gala and summit graphics.',
+    tags: ['Social Media', 'Brochures', 'Event Marketing'],
+  },
+]
 
 export const mobileApps: AppProject[] = [
   {
