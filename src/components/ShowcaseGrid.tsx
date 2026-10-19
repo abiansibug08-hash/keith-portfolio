@@ -27,14 +27,14 @@ export default function ShowcaseGrid() {
             listing, and point the link at it. */}
         <div className="ktools__vote">
           <p className="ktools__vote-label">
-            Certified by
+            Tools and
             <span aria-hidden="true" className="ktools__vote-dot" />
             <span className="ktools__vote-ask">Google</span>
           </p>
-          <a className="ktools__vote-frame ktools__vote-card" href="https://skillshop.withgoogle.com" target="_blank" rel="noopener noreferrer">
+          <a className="ktools__vote-frame ktools__vote-card" href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">
             <img src="/placeholders/badge.svg" alt="" width="48" height="48" />
             <span className="ktools__vote-text">
-              Google Analytics Certified Professional
+              Google Analytics & Search Console
             </span>
           </a>
         </div>
