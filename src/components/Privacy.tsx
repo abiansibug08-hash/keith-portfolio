@@ -2,11 +2,6 @@ import { ArrowLeft } from '@/components/slab'
 import { useNavigate } from 'react-router-dom'
 import { profile } from '@/data/profile'
 
-/**
- * Privacy Policy - PLACEHOLDER. Legal text has to describe YOUR site and what
- * it collects, so none is supplied. Write it (or have a lawyer or a policy
- * generator write it) and paste it into the sections below.
- */
 export default function Privacy() {
   const navigate = useNavigate()
 
@@ -23,20 +18,20 @@ export default function Privacy() {
         </button>
 
         <h1 className="legal-page__title">Privacy Policy</h1>
-        <p className="legal-page__updated">Last updated: PLACEHOLDER date</p>
+        <p className="legal-page__updated">Last updated: October 2026</p>
 
         <div className="legal-page__body">
           <h2>Who this covers</h2>
-          <p>PLACEHOLDER - tell me what to put here: who runs this site and which sites this policy applies to.</p>
+          <p>This personal portfolio is operated by Abian Keith Sibug. It showcases professional experience and examples of marketing work.</p>
 
           <h2>What is collected</h2>
-          <p>PLACEHOLDER - tell me what to put here: what the contact form and any analytics collect.</p>
+          <p>If you contact me, you may provide your name, email address and message. The website may also use standard hosting and technical logs.</p>
 
           <h2>How it is used</h2>
-          <p>PLACEHOLDER - tell me what to put here: what you do with that data and who else sees it.</p>
+          <p>Contact details are used to respond to inquiries and discuss potential work. Website hosting and any configured form provider may process submissions to deliver them.</p>
 
           <h2>How long it is kept</h2>
-          <p>PLACEHOLDER - tell me what to put here: retention periods and how to ask for deletion.</p>
+          <p>You may request deletion of your correspondence by emailing me. Retention of any data held by third-party platforms is subject to their own policies.</p>
 
           <h2>Contact</h2>
           <p>
